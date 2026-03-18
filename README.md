@@ -2,13 +2,13 @@
 
 Personal portfolio website — built with vanilla HTML, CSS, and JavaScript. Hosted for free on GitHub Pages.
 
-🌐 **Live:** [claricenunes.github.io](https://claricenunes.github.io)
+**Live:** [claricenunes.github.io](https://claricenunes.github.io)
 
 ---
 
 ## About
 
-Minimal, responsive portfolio featuring:
+Responsive portfolio featuring:
 
 - EN / PT language toggle
 - Scroll-triggered animations
@@ -22,9 +22,9 @@ Minimal, responsive portfolio featuring:
 ## Stack
 
 - HTML5
-- CSS3 (custom properties, grid, flexbox)
+- CSS3 
 - Vanilla JavaScript
-- Google Fonts (DM Serif Display + DM Mono)
+- Google Fonts 
 - GitHub Pages (hosting)
 
 ---
@@ -45,7 +45,7 @@ cd claricenunes.github.io
 ## License
 
 Feel free to use this as inspiration for your own portfolio.
-If you do, a credit or a star ⭐ is appreciated.
+If you do, a credit or a star is appreciated.
 
 ---
 
