@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarice Nunes — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f2;
+      --ink: #1a1814;
+      --muted: #7a7570;
+      --accent: #c8502a;
+      --border: #e0dbd4;
+      --card: #ffffff;
+      --mono: 'DM Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 160px 0 100px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 8vw, 80px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--ink); color: var(--bg); }
+    .btn-accent {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-accent:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* ── Section headers ── */
+    section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .section-num {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 400;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 16px; line-height: 1.9; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-aside {
+      padding-left: 32px;
+      border-left: 1px solid var(--border);
+    }
+    .aside-item { margin-bottom: 32px; }
+    .aside-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .aside-value { font-size: 14px; color: var(--ink); }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .skill-group {
+      background: var(--bg);
+      padding: 28px 24px;
+    }
+    .skill-group-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-list li::before {
+      content: '— ';
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    /* ── Projects ── */
+    .projects-list { display: flex; flex-direction: column; gap: 0; }
+    .project-item {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 24px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .project-item:first-child { border-top: 1px solid var(--border); }
+    .project-item:hover .project-arrow { transform: translate(4px, -4px); }
+    .project-num {
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 4px;
+      font-weight: 400;
+    }
+    .project-body {}
+    .project-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.8;
+      max-width: 500px;
+    }
+    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .project-arrow {
+      font-size: 20px;
+      color: var(--muted);
+      transition: transform 0.2s;
+      padding-top: 4px;
+    }
+
+    /* ── Experience ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    .exp-date {
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 4px;
+    }
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.8;
+    }
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 6px;
+    }
+
+    /* ── Contact ── */
+    #contact { border-bottom: none; }
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 60px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      max-width: 400px;
+    }
+    .contact-heading em { font-style: italic; color: var(--accent); }
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--ink); }
+    .contact-link-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      width: 64px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-aside { padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 32px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .project-item { grid-template-columns: 32px 1fr auto; gap: 16px; }
+      .nav-links { display: none; }
+      .contact-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="container">
+      <a href="#hero" class="nav-logo">Clarice Nunes</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-label reveal">Software Engineer · Brasília, Brazil</p>
+      <h1 class="reveal">Building things<br>that <em>actually</em><br>work.</h1>
+      <p class="hero-desc reveal">
+        Backend developer focused on PHP, Laravel & Python.
+        Currently interning at Brazil's federal government,
+        building real tools for real users.
+        Open to remote internships worldwide.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-accent">View my work</a>
+        <a href="#contact" class="btn">Get in touch</a>
+        <a href="https://github.com/claricenunes" target="_blank" class="btn">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <h2>About me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a Software Engineering student based in Brasília, currently interning
+            at Brazil's Ministry of Regional Development — where I build internal tools
+            and web solutions using PHP and Laravel.
+          </p>
+          <p>
+            I lived in Ohio, US, which gave me more than English fluency. It gave me
+            confidence to navigate unfamiliar environments, collaborate across cultures,
+            and adapt fast to new challenges.
+          </p>
+          <p>
+            I care about writing code that actually solves things — not just code that
+            works, but code that's maintainable and thought through. Backend is where
+            I feel at home, but I'm always expanding.
+          </p>
+        </div>
+        <div class="about-aside reveal">
+          <div class="aside-item">
+            <p class="aside-label">Currently</p>
+            <p class="aside-value">Intern · Ministry of Regional Development</p>
+          </div>
+          <div class="aside-item">
+            <p class="aside-label">Education</p>
+            <p class="aside-value">B.Sc. Software Engineering<br>in progress</p>
+          </div>
+          <div class="aside-item">
+            <p class="aside-label">Languages</p>
+            <p class="aside-value">Portuguese (native)<br>English (fluent)</p>
+          </div>
+          <div class="aside-item">
+            <p class="aside-label">Looking for</p>
+            <p class="aside-value">Remote internships worldwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-group">
+          <p class="skill-group-label">Backend</p>
+          <ul class="skill-list">
+            <li>PHP</li>
+            <li>Laravel</li>
+            <li>Python</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Frontend</p>
+          <ul class="skill-list">
+            <li>JavaScript</li>
+            <li>HTML & CSS</li>
+            <li>Blade (Laravel)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Database</p>
+          <ul class="skill-list">
+            <li>MySQL</li>
+            <li>Eloquent ORM</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Tools</p>
+          <ul class="skill-list">
+            <li>Git & GitHub</li>
+            <li>Linux</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">03</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="projects-list">
+
+        <!-- PROJETO 1 — substitua com o seu projeto real -->
+        <a href="https://github.com/claricenunes" target="_blank" class="project-item reveal">
+          <span class="project-num">01</span>
+          <div class="project-body">
+            <h3 class="project-title">Project Name Here</h3>
+            <p class="project-desc">
+              Brief description of what this project does and the problem it solves.
+              Two sentences max — keep it clear and concrete.
+            </p>
+            <div class="project-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <!-- PROJETO 2 -->
+        <a href="https://github.com/claricenunes" target="_blank" class="project-item reveal">
+          <span class="project-num">02</span>
+          <div class="project-body">
+            <h3 class="project-title">Project Name Here</h3>
+            <p class="project-desc">
+              Brief description of what this project does and the problem it solves.
+              Two sentences max — keep it clear and concrete.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <!-- PROJETO 3 -->
+        <a href="https://github.com/claricenunes" target="_blank" class="project-item reveal">
+          <span class="project-num">03</span>
+          <div class="project-body">
+            <h3 class="project-title">Project Name Here</h3>
+            <p class="project-desc">
+              Brief description of what this project does and the problem it solves.
+              Two sentences max — keep it clear and concrete.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">HTML</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">04</span>
+        <h2>Experience</h2>
+      </div>
+      <div>
+        <div class="exp-item reveal">
+          <div class="exp-date">2024 — Present</div>
+          <div>
+            <h3 class="exp-role">Software Engineering Intern</h3>
+            <p class="exp-company">Ministry of Regional Development · Brasília, Brazil</p>
+            <ul class="exp-bullets">
+              <li>Built internal web tools using PHP and Laravel for a federal government ministry</li>
+              <li>Developed and maintained RESTful APIs integrated with MySQL databases</li>
+              <li>Collaborated with cross-functional teams on government digital transformation projects</li>
+              <li>Improved system performance and code maintainability through refactoring initiatives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-date">2022 — 2023</div>
+          <div>
+            <h3 class="exp-role">International Experience</h3>
+            <p class="exp-company">Ohio, United States</p>
+            <ul class="exp-bullets">
+              <li>Developed full English fluency through total immersion in an English-speaking environment</li>
+              <li>Built resilience and adaptability navigating a new cultural and professional context</li>
+              <li>Strengthened autonomous problem-solving and cross-cultural communication skills</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">05</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-inner">
+        <h2 class="contact-heading reveal">
+          Let's build<br>something <em>good</em><br>together.
+        </h2>
+        <div class="contact-links reveal">
+          <a href="mailto:your@email.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            your@email.com
+          </a>
+          <a href="https://linkedin.com/in/claricenunes" target="_blank" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            linkedin.com/in/claricenunes
+          </a>
+          <a href="https://github.com/claricenunes" target="_blank" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            github.com/claricenunes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer>
+      <span>© 2025 Clarice Nunes</span>
+      <span>Built with HTML · Hosted on GitHub Pages</span>
+    </footer>
+  </div>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
