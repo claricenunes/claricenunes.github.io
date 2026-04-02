@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clarice Nunes — Software Engineer</title>
 
-  <!-- SEO -->
+  
   <meta name="description" content="Clarice Nunes — Software Engineering student and web developer based in Brasília, Brazil. Focused on PHP, Laravel & Python. Open to remote internships worldwide." />
   <meta name="author" content="Clarice Nunes" />
 
-  <!-- Open Graph (LinkedIn, WhatsApp, Slack preview) -->
+
   <meta property="og:title" content="Clarice Nunes — Software Engineer" />
   <meta property="og:description" content="Web developer focused on PHP, Laravel & Python. Currently interning at Brazil's federal government. Open to remote internships worldwide." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://claricenunes.github.io" />
 
-  <!-- Twitter/X card -->
+
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Clarice Nunes — Software Engineer" />
   <meta name="twitter:description" content="Web developer focused on PHP, Laravel & Python. Open to remote internships worldwide." />
 
-  <!-- Favicon -->
+ 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-style='italic' fill='%23c8502a'>CN</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,7 +53,7 @@
 
     .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
-    /* Nav */
+
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 20px 0; background: var(--bg);
@@ -67,7 +67,7 @@
     .nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--ink); }
 
-    /* Language toggle */
+ 
     .lang-toggle { display: flex; border: 1px solid var(--border); overflow: hidden; }
     .lang-btn {
       font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
@@ -77,7 +77,7 @@
     .lang-btn.active { background: var(--ink); color: var(--bg); }
     .lang-btn:not(.active):hover { background: var(--border); }
 
-    /* Hero */
+
     #hero { padding: 160px 0 100px; border-bottom: 1px solid var(--border); }
     .hero-label {
       font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
@@ -98,13 +98,13 @@
     .btn-accent { background: var(--ink); color: var(--bg); }
     .btn-accent:hover { background: var(--accent); border-color: var(--accent); }
 
-    /* Sections */
+
     section { padding: 80px 0; border-bottom: 1px solid var(--border); }
     .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 56px; }
     .section-num { font-size: 11px; letter-spacing: 0.1em; color: var(--accent); font-weight: 400; }
     h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; font-weight: 400; }
 
-    /* About */
+    
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
     .about-text p { color: var(--muted); margin-bottom: 16px; line-height: 1.9; }
     .about-text p:last-child { margin-bottom: 0; }
@@ -113,7 +113,7 @@
     .aside-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .aside-value { font-size: 14px; color: var(--ink); }
 
-    /* Skills */
+ 
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .skill-group { background: var(--bg); padding: 28px 24px; }
     .skill-group-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
@@ -122,7 +122,7 @@
     .skill-list li:last-child { border-bottom: none; }
     .skill-list li::before { content: '— '; color: var(--accent); font-size: 11px; }
 
-    /* Projects */
+ 
     .projects-list { display: flex; flex-direction: column; }
     .project-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 24px; align-items: start; padding: 32px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
     .project-item:first-child { border-top: 1px solid var(--border); }
@@ -134,7 +134,7 @@
     .tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); }
     .project-arrow { font-size: 20px; color: var(--muted); transition: transform 0.2s; padding-top: 4px; }
 
-    /* Experience */
+   
     .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--border); }
     .exp-item:first-child { border-top: 1px solid var(--border); }
     .exp-date { font-size: 12px; color: var(--muted); padding-top: 4px; }
@@ -144,7 +144,7 @@
     .exp-bullets li { font-size: 13px; color: var(--muted); padding: 4px 0 4px 16px; position: relative; line-height: 1.8; }
     .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 6px; }
 
-    /* Contact */
+ 
     #contact { border-bottom: none; }
     .contact-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap; }
     .contact-heading { font-family: var(--serif); font-size: clamp(36px, 6vw, 60px); letter-spacing: -0.03em; line-height: 1.1; max-width: 400px; }
@@ -154,14 +154,14 @@
     .contact-link:hover { color: var(--ink); }
     .contact-link-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); width: 64px; }
 
-    /* Footer */
+
     footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); }
 
-    /* Animations */
+
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* Responsive */
+  
     @media (max-width: 600px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-aside { padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 32px; }
@@ -193,7 +193,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+
   <section id="hero">
     <div class="container">
       <p class="hero-label reveal"
@@ -219,7 +219,7 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+
   <section id="about">
     <div class="container">
       <div class="section-header reveal">
@@ -263,7 +263,7 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
@@ -291,7 +291,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+ 
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
@@ -352,7 +352,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+
   <section id="experience">
     <div class="container">
       <div class="section-header reveal">
@@ -404,7 +404,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  
   <section id="contact">
     <div class="container">
       <div class="section-header reveal">
@@ -442,13 +442,13 @@
   </div>
 
   <script>
-    // Nav scroll effect
+
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Reveal on scroll
+
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -460,7 +460,7 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Language toggle
+
     function setLang(lang) {
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
