@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarice Nunes — Software Engineer</title>
+  <title>Clarice Nunes — Engenheira de Software</title>
 
   <!-- SEO -->
-  <meta name="description" content="Clarice Nunes — Software Engineering student and web developer based in Brasília, Brazil. Focused on PHP, Laravel & Python. Open to remote internships worldwide." />
+  <meta name="description" content="Clarice Nunes — Estudante de Engenharia de Software e desenvolvedora web em Brasília, Brasil. Foco em PHP, Laravel e Python. Aberta a estágios remotos." />
   <meta name="author" content="Clarice Nunes" />
 
   <!-- Open Graph (LinkedIn, WhatsApp, Slack preview) -->
-  <meta property="og:title" content="Clarice Nunes — Software Engineer" />
-  <meta property="og:description" content="Web developer focused on PHP, Laravel & Python. Currently interning at Brazil's federal government. Open to remote internships worldwide." />
+  <meta property="og:title" content="Clarice Nunes — Engenheira de Software" />
+  <meta property="og:description" content="Desenvolvedora web com foco em PHP, Laravel e Python. Atualmente estagiária no Ministério da Integração e Desenvolvimento Regional. Aberta a estágios remotos no mundo todo." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://claricenunes.github.io" />
 
   <!-- Twitter/X card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Clarice Nunes — Software Engineer" />
-  <meta name="twitter:description" content="Web developer focused on PHP, Laravel & Python. Open to remote internships worldwide." />
+  <meta name="twitter:title" content="Clarice Nunes — Engenheira de Software" />
+  <meta name="twitter:description" content="Desenvolvedora web com foco em PHP, Laravel e Python. Aberta a estágios remotos no mundo todo." />
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-style='italic' fill='%23c8502a'>CN</text></svg>" />
@@ -62,9 +62,9 @@
     nav.scrolled { border-color: var(--border); }
     nav .container { display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { font-family: var(--serif); font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-right { display: flex; align-items: center; gap: 32px; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--ink); }
 
     /* Language toggle */
@@ -144,6 +144,15 @@
     .exp-bullets li { font-size: 13px; color: var(--muted); padding: 4px 0 4px 16px; position: relative; line-height: 1.8; }
     .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 6px; }
 
+    /* Certificates */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .cert-item { background: var(--bg); padding: 28px 24px; display: flex; flex-direction: column; }
+    .cert-issuer { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .cert-name { font-family: var(--serif); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink); line-height: 1.3; flex: 1; }
+    .cert-date { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+    .cert-link { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; align-self: flex-start; }
+    .cert-link:hover { color: var(--accent); }
+
     /* Contact */
     #contact { border-bottom: none; }
     .contact-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap; }
@@ -179,15 +188,16 @@
       <a href="#hero" class="nav-logo">Clarice Nunes</a>
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="#about"      data-en="About"      data-pt="Sobre">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects"   data-en="Projects"   data-pt="Projetos">Projects</a></li>
-          <li><a href="#experience" data-en="Experience" data-pt="Experiência">Experience</a></li>
-          <li><a href="#contact"    data-en="Contact"    data-pt="Contato">Contact</a></li>
+          <li><a href="#about"        data-en="About"        data-pt="Sobre">Sobre</a></li>
+          <li><a href="#skills"       data-en="Skills"       data-pt="Skills">Skills</a></li>
+          <li><a href="#projects"     data-en="Projects"     data-pt="Projetos">Projetos</a></li>
+          <li><a href="#experience"   data-en="Experience"   data-pt="Experiência">Experiência</a></li>
+          <li><a href="#certificates" data-en="Certificates" data-pt="Certificados">Certificados</a></li>
+          <li><a href="#contact"      data-en="Contact"      data-pt="Contato">Contato</a></li>
         </ul>
         <div class="lang-toggle">
-          <button class="lang-btn active" onclick="setLang('en')">EN</button>
-          <button class="lang-btn"        onclick="setLang('pt')">PT</button>
+          <button class="lang-btn"        onclick="setLang('en')">EN</button>
+          <button class="lang-btn active" onclick="setLang('pt')">PT</button>
         </div>
       </div>
     </div>
@@ -199,21 +209,21 @@
       <p class="hero-label reveal"
          data-en="Software Engineer · Brasília, Brazil"
          data-pt="Engenheira de Software · Brasília, Brasil">
-        Software Engineer · Brasília, Brazil
+        Engenheira de Software · Brasília, Brasil
       </p>
       <h1 class="reveal"
           data-en="Building things<br>that <em>actually</em><br>work."
           data-pt="Construindo coisas<br>que <em>realmente</em><br>funcionam.">
-        Building things<br>that <em>actually</em><br>work.
+        Construindo coisas<br>que <em>realmente</em><br>funcionam.
       </h1>
       <p class="hero-desc reveal"
          data-en="Web developer focused on PHP, Laravel & Python. Currently interning at Brazil's federal government, building real tools for real users. Open to remote internships worldwide."
-         data-pt="Desenvolvedora web com foco em PHP, Laravel e Python. Atualmente estagiária no governo federal, construindo ferramentas reais para usuários reais. Aberta a estágios remotos no mundo todo.">
-        Web developer focused on PHP, Laravel & Python. Currently interning at Brazil's federal government, building real tools for real users. Open to remote internships worldwide.
+         data-pt="Desenvolvedora web com foco em PHP, Laravel e Python. Atualmente estagiária no Ministério da Integração e do Desenvolvimento Regional, construindo ferramentas reais para usuários reais. Aberta a estágios remotos no mundo todo.">
+        Desenvolvedora web com foco em PHP, Laravel e Python. Atualmente estagiária no Ministério da Integração e do Desenvolvimento Regional, construindo ferramentas reais para usuários reais. Aberta a estágios remotos no mundo todo.
       </p>
       <div class="hero-cta reveal">
-        <a href="#projects" class="btn btn-accent" data-en="View my work"    data-pt="Ver projetos">View my work</a>
-        <a href="#contact"  class="btn"            data-en="Get in touch"    data-pt="Entre em contato">Get in touch</a>
+        <a href="#projects" class="btn btn-accent" data-en="View my work"  data-pt="Ver projetos">Ver projetos</a>
+        <a href="#contact"  class="btn"            data-en="Get in touch"  data-pt="Entre em contato">Entre em contato</a>
         <a href="https://github.com/claricenunes" target="_blank" class="btn">GitHub ↗</a>
       </div>
     </div>
@@ -224,39 +234,39 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-num">01</span>
-        <h2 data-en="About me" data-pt="Sobre mim">About me</h2>
+        <h2 data-en="About me" data-pt="Sobre mim">Sobre mim</h2>
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
           <p data-en="I'm a Software Engineering student based in Brasília, currently interning at Brazil's Ministry of Regional Development — where I build internal tools and web solutions using PHP and Laravel."
              data-pt="Sou estudante de Engenharia de Software em Brasília, atualmente estagiária no Ministério da Integração e do Desenvolvimento Regional — onde desenvolvo ferramentas internas e soluções web com PHP e Laravel.">
-            I'm a Software Engineering student based in Brasília, currently interning at Brazil's Ministry of Regional Development — where I build internal tools and web solutions using PHP and Laravel.
+            Sou estudante de Engenharia de Software em Brasília, atualmente estagiária no Ministério da Integração e do Desenvolvimento Regional — onde desenvolvo ferramentas internas e soluções web com PHP e Laravel.
           </p>
           <p data-en="I lived in Ohio, US for a year, which gave me more than English fluency. It gave me confidence to navigate unfamiliar environments, collaborate across cultures, and adapt fast to new challenges."
              data-pt="Morei em Ohio, nos EUA durante um ano, o que me deu muito mais do que fluência em inglês. Me deu confiança para navegar em ambientes desconhecidos, colaborar entre culturas e me adaptar rapidamente a novos desafios.">
-            I lived in Ohio, US for a year, which gave me more than English fluency. It gave me confidence to navigate unfamiliar environments, collaborate across cultures, and adapt fast to new challenges.
+            Morei em Ohio, nos EUA durante um ano, o que me deu muito mais do que fluência em inglês. Me deu confiança para navegar em ambientes desconhecidos, colaborar entre culturas e me adaptar rapidamente a novos desafios.
           </p>
           <p data-en="I care about writing code that actually solves things — not just code that works, but code that's maintainable and thought through."
              data-pt="Me importo em escrever código que realmente resolve problemas — não só código que funciona, mas código limpo e bem pensado.">
-            I care about writing code that actually solves things — not just code that works, but code that's maintainable and thought through.
+            Me importo em escrever código que realmente resolve problemas — não só código que funciona, mas código limpo e bem pensado.
           </p>
         </div>
         <div class="about-aside reveal">
           <div class="aside-item">
-            <p class="aside-label" data-en="Currently"   data-pt="Atualmente">Currently</p>
-            <p class="aside-value" data-en="Intern · Ministry of Regional Development" data-pt="Estagiária · Ministério da Integração e do Desenvolvimento Regional">Intern · Ministry of Integration and Regional Development</p>
+            <p class="aside-label" data-en="Currently"   data-pt="Atualmente">Atualmente</p>
+            <p class="aside-value" data-en="Intern · Ministry of Regional Development" data-pt="Estagiária · Ministério da Integração e do Desenvolvimento Regional">Estagiária · Ministério da Integração e do Desenvolvimento Regional</p>
           </div>
           <div class="aside-item">
-            <p class="aside-label" data-en="Education"   data-pt="Formação">Education</p>
-            <p class="aside-value" data-en="B.Sc. Software Engineering<br>in progress" data-pt="Engenharia de Software<br>em andamento">B.Sc. Software Engineering<br>in progress</p>
+            <p class="aside-label" data-en="Education"   data-pt="Formação">Formação</p>
+            <p class="aside-value" data-en="B.Sc. Software Engineering<br>in progress" data-pt="Engenharia de Software<br>em andamento">Engenharia de Software<br>em andamento</p>
           </div>
           <div class="aside-item">
-            <p class="aside-label" data-en="Languages"   data-pt="Idiomas">Languages</p>
-            <p class="aside-value" data-en="Portuguese (native)<br>English (fluent)" data-pt="Português (nativo)<br>Inglês (fluente)">Portuguese (native)<br>English (fluent)</p>
+            <p class="aside-label" data-en="Languages"   data-pt="Idiomas">Idiomas</p>
+            <p class="aside-value" data-en="Portuguese (native)<br>English (fluent)" data-pt="Português (nativo)<br>Inglês (fluente)">Português (nativo)<br>Inglês (fluente)</p>
           </div>
           <div class="aside-item">
-            <p class="aside-label" data-en="Looking for" data-pt="Buscando">Looking for</p>
-            <p class="aside-value" data-en="Remote internships worldwide" data-pt="Estágios remotos no mundo todo">Remote internships worldwide</p>
+            <p class="aside-label" data-en="Looking for" data-pt="Buscando">Buscando</p>
+            <p class="aside-value" data-en="Remote internships worldwide" data-pt="Estágios remotos no mundo todo">Estágios remotos no mundo todo</p>
           </div>
         </div>
       </div>
@@ -284,7 +294,7 @@
           <ul class="skill-list"><li>PostgreSQL</li><li>SQL</li></ul>
         </div>
         <div class="skill-group">
-          <p class="skill-group-label" data-en="Tools" data-pt="Ferramentas">Tools</p>
+          <p class="skill-group-label" data-en="Tools" data-pt="Ferramentas">Ferramentas</p>
           <ul class="skill-list"><li>Git & GitHub</li><li>Visual Studio Code</li><li>Figma</li></ul>
         </div>
       </div>
@@ -296,7 +306,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-num">03</span>
-        <h2 data-en="Projects" data-pt="Projetos">Projects</h2>
+        <h2 data-en="Projects" data-pt="Projetos">Projetos</h2>
       </div>
       <div class="projects-list">
 
@@ -307,32 +317,32 @@
             <p class="project-desc"
                data-en="A full-stack restaurant website featuring a digital menu, login system, and database integration. It solves the problem of organizing menu information and managing user access in a single platform."
                data-pt="Um site de restaurante full-stack com cardápio digital, sistema de login e integração com banco de dados. Ele resolve o problema de organizar as informações do menu e gerenciar o acesso de usuários em uma única plataforma.">
-              A full-stack restaurant website featuring a digital menu, login system, and database integration. It solves the problem of organizing menu information and managing user access in a single platform.
+              Um site de restaurante full-stack com cardápio digital, sistema de login e integração com banco de dados. Ele resolve o problema de organizar as informações do menu e gerenciar o acesso de usuários em uma única plataforma.
             </p>
             <div class="project-tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">PostgreSQL</span><span class="tag">HTML & CSS</span></div>
           </div>
           <span class="project-arrow">↗</span>
         </a>
 
-       <a href="https://github.com/claricenunes/Give-and-Grow" target="_blank" class="project-item reveal">
-  <span class="project-num">02</span>
-  <div class="project-body">
-    <h3 class="project-title">Give&Grow</h3>
-    <p class="project-desc"
-       data-en="Web platform created to connect volunteers and community members through free educational workshops and activities. The system allows users to register interest once and receive automated email notifications when new events are available, optimizing participation management."
-       data-pt="Plataforma web desenvolvida para conectar voluntários e membros da comunidade por meio de oficinas e atividades educativas gratuitas. O sistema permite que usuários registrem interesse uma única vez e recebam notificações automáticas por e-mail quando novos eventos são publicados, otimizando a gestão de participantes.">
-      Web platform created to connect volunteers and community members through free educational workshops and activities. The system allows users to register interest once and receive automated email notifications when new events are available, optimizing participation management.
-    </p>
-    <div class="project-tags">
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">Google Apps Script</span>
-      <span class="tag">Google Forms</span>
-    </div>
-  </div>
-  <span class="project-arrow">↗</span>
-</a>
+        <a href="https://vivecomunidade.com.br/" target="_blank" class="project-item reveal">
+          <span class="project-num">02</span>
+          <div class="project-body">
+            <h3 class="project-title">VIVE Comunidade</h3>
+            <p class="project-desc"
+               data-en="Web platform created to connect volunteers and community members through free educational workshops and activities. The system allows users to register interest once and receive automated email notifications when new events are available, optimizing participation management."
+               data-pt="Plataforma web desenvolvida para conectar voluntários e membros da comunidade por meio de oficinas e atividades educativas gratuitas. O sistema permite que usuários registrem interesse uma única vez e recebam notificações automáticas por e-mail quando novos eventos são publicados, otimizando a gestão de participantes.">
+              Plataforma web desenvolvida para conectar voluntários e membros da comunidade por meio de oficinas e atividades educativas gratuitas. O sistema permite que usuários registrem interesse uma única vez e recebam notificações automáticas por e-mail quando novos eventos são publicados, otimizando a gestão de participantes.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Google Apps Script</span>
+              <span class="tag">Google Forms</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
 
         <a href="https://github.com/claricenunes/jubart_data" target="_blank" class="project-item reveal">
           <span class="project-num">03</span>
@@ -341,7 +351,7 @@
             <p class="project-desc"
                data-en="A reconstruction of the Jubart website focused on improving layout, performance, and user experience. The project reorganizes content and modernizes the interface for better accessibility and navigation."
                data-pt="Reconstrução do site da Jubart com foco na melhoria do layout, desempenho e experiência do usuário. O projeto reorganiza o conteúdo e moderniza a interface para melhor acessibilidade e navegação.">
-              A reconstruction of the Jubart website focused on improving layout, performance, and user experience. The project reorganizes content and modernizes the interface for better accessibility and navigation.
+              Reconstrução do site da Jubart com foco na melhoria do layout, desempenho e experiência do usuário. O projeto reorganiza o conteúdo e moderniza a interface para melhor acessibilidade e navegação.
             </p>
             <div class="project-tags"><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">PostgreSQL</span><span class="tag">HTML & CSS</span></div>
           </div>
@@ -357,30 +367,30 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-num">04</span>
-        <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
+        <h2 data-en="Experience" data-pt="Experiência">Experiência</h2>
       </div>
       <div>
         <div class="exp-item reveal">
-          <div class="exp-date" data-en="2026 — Present" data-pt="2026 — Atual">2026 — Present</div>
+          <div class="exp-date" data-en="2026 — Present" data-pt="2026 — Atual">2026 — Atual</div>
           <div>
-            <h3 class="exp-role" data-en="Web Development and Data Analysis Intern" data-pt="Estagiária em Desenvolvimento Web e Análise de Dados">Web Development and Data Analysis Intern</h3>
-            <p class="exp-company" data-en="Ministry of Regional Development · Brasília, Brazil" data-pt="Ministério do Desenvolvimento Regional · Brasília, Brasil">Ministry of Regional Development · Brasília, Brazil</p>
+            <h3 class="exp-role" data-en="Web Development and Data Analysis Intern" data-pt="Estagiária em Desenvolvimento Web e Análise de Dados">Estagiária em Desenvolvimento Web e Análise de Dados</h3>
+            <p class="exp-company" data-en="Ministry of Regional Development · Brasília, Brazil" data-pt="Ministério do Desenvolvimento Regional · Brasília, Brasil">Ministério do Desenvolvimento Regional · Brasília, Brasil</p>
             <ul class="exp-bullets">
               <li data-en="Maintained and modernized legacy web systems using PHP and Laravel"
                   data-pt="Realizei manutenção e modernização de sistemas web legados utilizando PHP e Laravel">
-                Maintained and modernized legacy web systems using PHP and Laravel
+                Realizei manutenção e modernização de sistemas web legados utilizando PHP e Laravel
               </li>
               <li data-en="Supported and improved existing system architectures while ensuring database integrity and performance"
                   data-pt="Atuei no suporte e evolução de arquiteturas existentes garantindo integridade e performance de bancos de dados">
-                Supported and improved existing system architectures while ensuring database integrity and performance
+                Atuei no suporte e evolução de arquiteturas existentes garantindo integridade e performance de bancos de dados
               </li>
               <li data-en="Analyzed data from legacy systems to generate analytical reports and support decision-making"
                   data-pt="Analisei dados de sistemas legados para geração de relatórios analíticos e apoio à tomada de decisão">
-                Analyzed data from legacy systems to generate analytical reports and support decision-making
+                Analisei dados de sistemas legados para geração de relatórios analíticos e apoio à tomada de decisão
               </li>
               <li data-en="Addressed technical debt while extracting strategic insights from consolidated systems"
                   data-pt="Trabalhei na resolução de débitos técnicos e na extração de insights estratégicos de sistemas consolidados">
-                Addressed technical debt while extracting strategic insights from consolidated systems
+                Trabalhei na resolução de débitos técnicos e na extração de insights estratégicos de sistemas consolidados
               </li>
             </ul>
           </div>
@@ -388,18 +398,83 @@
         <div class="exp-item reveal">
           <div class="exp-date">2022 — 2023</div>
           <div>
-            <h3 class="exp-role" data-en="International Experience" data-pt="Experiência Internacional">International Experience</h3>
+            <h3 class="exp-role" data-en="International Experience" data-pt="Experiência Internacional">Experiência Internacional</h3>
             <p class="exp-company">Ohio, United States</p>
             <ul class="exp-bullets">
               <li data-en="Developed full English fluency through total immersion in an English-speaking environment"
-                  data-pt="Desenvolvi fluência plena em inglês através de imersão total em ambiente anglófono">Developed full English fluency through total immersion in an English-speaking environment</li>
+                  data-pt="Desenvolvi fluência plena em inglês através de imersão total em ambiente anglófono">Desenvolvi fluência plena em inglês através de imersão total em ambiente anglófono</li>
               <li data-en="Built resilience and adaptability navigating a new cultural and professional context"
-                  data-pt="Desenvolvi resiliência e adaptabilidade ao navegar em um novo contexto cultural e profissional">Built resilience and adaptability navigating a new cultural and professional context</li>
+                  data-pt="Desenvolvi resiliência e adaptabilidade ao navegar em um novo contexto cultural e profissional">Desenvolvi resiliência e adaptabilidade ao navegar em um novo contexto cultural e profissional</li>
               <li data-en="Strengthened autonomous problem-solving and cross-cultural communication skills"
-                  data-pt="Fortaleci habilidades de resolução autônoma de problemas e comunicação intercultural">Strengthened autonomous problem-solving and cross-cultural communication skills</li>
+                  data-pt="Fortaleci habilidades de resolução autônoma de problemas e comunicação intercultural">Fortaleci habilidades de resolução autônoma de problemas e comunicação intercultural</li>
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">05</span>
+        <h2 data-en="Certificates" data-pt="Certificados">Certificados</h2>
+      </div>
+      <div class="cert-grid">
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Santander Open Academy</p>
+          <h3 class="cert-name">Python</h3>
+          <p class="cert-date" data-en="Aug 2025" data-pt="Ago 2025">Ago 2025</p>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Fundação Bradesco</p>
+          <h3 class="cert-name">Crie um site simples usando HTML, CSS e JavaScript</h3>
+          <p class="cert-date" data-en="Aug 2025" data-pt="Ago 2025">Ago 2025</p>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Alura</p>
+          <h3 class="cert-name">Praticando SQL</h3>
+          <p class="cert-date" data-en="Feb 2026" data-pt="Fev 2026">Fev 2026</p>
+          <a href="https://cursos.alura.com.br/certificate/12664a59-bbe7-4785-ac7b-389baae5df95?lang=pt_BR" class="cert-link" data-en="View certificate ↗" data-pt="Ver certificado ↗">Ver certificado ↗</a>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Alura</p>
+          <h3 class="cert-name">Pensamento computacional: fundamentos da computação e lógica de programação</h3>
+          <p class="cert-date" data-en="Mar 2026" data-pt="Mar 2026">Mar 2026</p>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Alura</p>
+          <h3 class="cert-name">Laravel: criando uma aplicação com MVC</h3>
+          <p class="cert-date" data-en="Apr 2026" data-pt="Abr 2026">Abr 2026</p>
+          <a href="https://cursos.alura.com.br/certificate/48751891-95bc-4c26-bdae-5276b29ceec2?lang=pt_BR" class="cert-link" data-en="View certificate ↗" data-pt="Ver certificado ↗">Ver certificado ↗</a>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Alura</p>
+          <h3 class="cert-name">Figma: Conhecendo o programa</h3>
+          <p class="cert-date" data-en="Apr 2026" data-pt="Abr 2026">Abr 2026</p>
+          <a href="https://cursos.alura.com.br/certificate/82577a63-b134-4ee0-be7c-5191449c6193?lang=pt_BR" class="cert-link" data-en="View certificate ↗" data-pt="Ver certificado ↗">Ver certificado ↗</a>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Alura</p>
+          <h3 class="cert-name">Governança de Inteligência Artificial: fundamentos, riscos e boas práticas</h3>
+          <p class="cert-date" data-en="May 2026" data-pt="Mai 2026">Mai 2026</p>
+        </div>
+
+        <div class="cert-item reveal">
+          <p class="cert-issuer">Anthropic</p>
+          <h3 class="cert-name">Building with the Claude API</h3>
+          <p class="cert-date" data-en="May 2026 · ID so6sij2tg4pz" data-pt="Mai 2026 · ID so6sij2tg4pz">Mai 2026 · ID so6sij2tg4pz</p>
+          <a href="https://verify.skilljar.com/c/so6sij2tg4pz" class="cert-link" data-en="View certificate ↗" data-pt="Ver certificado ↗">Ver certificado ↗</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -408,14 +483,14 @@
   <section id="contact">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num">05</span>
-        <h2 data-en="Contact" data-pt="Contato">Contact</h2>
+        <span class="section-num">06</span>
+        <h2 data-en="Contact" data-pt="Contato">Contato</h2>
       </div>
       <div class="contact-inner">
         <h2 class="contact-heading reveal"
             data-en="Let's build<br>something <em>good</em><br>together."
             data-pt="Vamos construir<br>algo <em>incrível</em><br>juntos.">
-          Let's build<br>something <em>good</em><br>together.
+          Vamos construir<br>algo <em>incrível</em><br>juntos.
         </h2>
         <div class="contact-links reveal">
           <a href="mailto:euclaricenunes@gmail.com" class="contact-link">
@@ -436,9 +511,6 @@
   </section>
 
   <div class="container">
-    <footer>
-      <span>© 2026 Clarice Nunes</span>
-    </footer>
   </div>
 
   <script>
@@ -468,8 +540,12 @@
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
         el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.pt;
       });
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
     }
+  </script>
+
+</body>
+</html>
   </script>
 
 </body>
