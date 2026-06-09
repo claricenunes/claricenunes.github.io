@@ -1,37 +1,47 @@
 # claricenunes.github.io
 
-Personal portfolio website — built with vanilla HTML, CSS, and JavaScript. Hosted for free on GitHub Pages.
+Personal portfolio — **[claricenunes.github.io](https://claricenunes.github.io)**
 
-**Live:** [claricenunes.github.io](https://claricenunes.github.io)
+Built with vanilla HTML, CSS, and JavaScript. Zero dependencies, zero build step, hosted on GitHub Pages.
 
 ---
 
 ## About
 
-Responsive portfolio featuring:
+I'm a Software Engineering student specializing in backend development and data analysis. This portfolio covers my experience with PHP/Laravel, Python, PostgreSQL, and AI-applied engineering projects.
+
+Currently interning at Brazil's Ministry of Regional Development, shipping production code on legacy systems. Open to remote backend and AI engineering opportunities.
+
+---
+
+## What's inside
 
 - EN / PT language toggle
-- Scroll-triggered animations
-- Sections: About, Skills, Projects, Experience, Contact
-- SEO meta tags and Open Graph for LinkedIn/WhatsApp previews
+- Scroll-triggered reveal animations
+- Sections: Experience · Projects · Skills · About · Contact
+- SEO meta tags + Open Graph for LinkedIn/WhatsApp previews
 - Custom SVG favicon
-- Zero dependencies — no frameworks, no build tools
+- Fully responsive (mobile + desktop)
+
+**Stack:** HTML5 · CSS3 · Vanilla JS · Google Fonts · GitHub Pages
 
 ---
 
-## Stack
+## Projects featured
 
-- HTML5
-- CSS3 
-- Vanilla JavaScript
-- Google Fonts 
-- GitHub Pages (hosting)
+| Project | Stack | Highlights |
+|---|---|---|
+| [VIVE — Community Platform](https://vivecomunidade.com.br) | React 19, Firebase, Vite | 1,000+ users, built from zero |
+| [WhatsApp AI Agent](https://github.com/claricenunes/atendimentoIA) | Python, FastAPI, OpenAI, Docker | GPT-4o-mini, Clean Architecture |
+| [Restaurant Web Platform](https://github.com/claricenunes/poke_site) | PHP, Laravel, PostgreSQL | Full MVC backend lifecycle |
+| [Analytics Platform Rebuild](https://github.com/claricenunes/jubart_data) | Python, PHP, Laravel | Data pipelines, UI/UX overhaul |
+| [RESTful Web API](https://github.com/claricenunes/WebApi) | C#, .NET | OOP, clean separation of concerns |
 
 ---
 
-## Running locally
+## Run locally
 
-No build step needed. Just open the file:
+No build step needed:
 
 ```bash
 git clone https://github.com/claricenunes/claricenunes.github.io
@@ -42,11 +52,6 @@ cd claricenunes.github.io
 
 ---
 
-## License
+## Contact
 
-Feel free to use this as inspiration for your own portfolio.
-If you do, a credit or a star is appreciated.
-
----
-
-*Built by [Clarice Nunes](https://linkedin.com/in/claricesnunes)*
+[eiclaricenunes@gmail.com](mailto:eiclaricenunes@gmail.com) · [LinkedIn](https://linkedin.com/in/claricesnunes) · [GitHub](https://github.com/claricenunes)
