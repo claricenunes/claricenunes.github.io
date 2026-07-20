@@ -6,90 +6,234 @@
   <title>Clarice Nunes — Software Engineer</title>
 
   <!-- SEO -->
-  <meta name="description" content="Clarice Nunes — Software Engineering student specializing in software development and data analysis. PHP, Laravel, Python, PostgreSQL. Open to remote opportunities worldwide." />
+  <meta name="description" content="Clarice Nunes — Software Engineering student at UniCEUB. PHP, Laravel, Python, React, Next.js, and AI-integrated products. Open to remote opportunities worldwide." />
   <meta name="author" content="Clarice Nunes" />
 
   <!-- Open Graph (LinkedIn, WhatsApp, Slack preview) -->
   <meta property="og:title" content="Clarice Nunes — Software Engineer" />
-  <meta property="og:description" content="Software Engineering student. PHP, Laravel, Python, PostgreSQL. Real-world experience at Brazil's Ministry of Regional Development. Open to remote internships." />
+  <meta property="og:description" content="Software Engineering student. PHP, Laravel, Python, React, Next.js. Real-world experience at Brazil's Ministry of Regional Development. Open to remote internships." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://claricenunes.github.io" />
 
   <!-- Twitter/X card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Clarice Nunes — Software Engineer" />
-  <meta name="twitter:description" content="Software engineer. PHP, Laravel, Python, PostgreSQL. Open to remote opportunities." />
+  <meta name="twitter:description" content="Software engineer. PHP, Laravel, Python, React, Next.js. Open to remote opportunities." />
+
+  <meta name="theme-color" content="#e8e7e7" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-style='italic' fill='%23c8502a'>CN</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-size='13' font-weight='800' fill='%230f7a4d'>CN</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:     #f7f5f2;
-      --ink:    #1a1814;
-      --muted:  #7a7570;
-      --accent: #c8502a;
-      --border: #e0dbd4;
-      --mono:   'DM Mono', monospace;
-      --serif:  'DM Serif Display', serif;
+      --bg:       #e8e7e7;
+      --ink:      #1e1e1e;
+      --accent:   #0f7a4d;
+      --accent-2: #34d399;
+      --sans:     'Inter', system-ui, sans-serif;
+      --display:  'Montserrat', system-ui, sans-serif;
+      --ease:     cubic-bezier(.16,1,.3,1);
+
+      /* light-mode (on --bg) */
+      --muted:    rgba(30,30,30,.66);
+      --faint:    rgba(30,30,30,.42);
+      --hairline: rgba(30,30,30,.16);
+
+      /* dark-mode (on --ink) */
+      --muted-d:    rgba(232,231,231,.58);
+      --faint-d:    rgba(232,231,231,.4);
+      --hairline-d: rgba(232,231,231,.16);
     }
 
     html { scroll-behavior: smooth; }
+    html[data-intro="pending"] { overflow: hidden; }
 
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: var(--mono);
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.7;
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
 
-    .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    ::selection { background: rgba(15,122,77,.18); }
 
-    /* ── Nav ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 20px 0; background: var(--bg);
-      border-bottom: 1px solid transparent; transition: border-color 0.3s;
-    }
-    nav.scrolled { border-color: var(--border); }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
-    .nav-logo { font-family: var(--serif); font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-right { display: flex; align-items: center; gap: 32px; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; color: inherit; }
 
-    /* Language toggle */
-    .lang-toggle { display: flex; border: 1px solid var(--border); overflow: hidden; }
+    :where(a, button, [role="button"], input):focus-visible {
+      outline: 2px solid currentColor; outline-offset: 4px;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+    @media (hover: hover) and (pointer: fine) {
+      html.cursor-ready, html.cursor-ready * { cursor: none !important; }
+    }
+
+    /* ── Custom cursor ── */
+    #cursor-dot {
+      position: fixed; top: 0; left: 0; width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent); pointer-events: none; z-index: 9999;
+      transform: translate3d(-50%, -50%, 0); transition: width .22s var(--ease), height .22s var(--ease), background .22s var(--ease), opacity .2s;
+      opacity: 0; mix-blend-mode: normal;
+    }
+    #cursor-dot.live { opacity: 1; }
+    #cursor-dot.hover { width: 40px; height: 40px; background: rgba(15,122,77,.14); border: 1.5px solid var(--accent); }
+
+    /* ── Scroll progress ── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9998;
+      background: var(--accent); transition: width .1s linear;
+    }
+
+    /* ── Intro overlay ── */
+    #intro {
+      position: fixed; inset: 0; z-index: 10000; background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .8s var(--ease), filter .8s var(--ease);
+    }
+    #intro.done { transform: translate3d(0,-101%,0); filter: blur(1px); pointer-events: none; }
+    .intro-mark { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .intro-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+      animation: introDotPulse 1.1s ease-in-out infinite;
+    }
+    @keyframes introDotPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 8px rgba(15,122,77,.18); }
+      50%      { transform: scale(1.3); box-shadow: 0 0 0 14px rgba(15,122,77,.05); }
+    }
+    .intro-bar { width: 120px; height: 1px; background: rgba(232,231,231,.16); overflow: hidden; position: relative; }
+    .intro-bar::after {
+      content: ''; position: absolute; inset: 0; background: var(--accent);
+      transform: translateX(-100%); animation: introBar 1.1s ease-in-out infinite;
+    }
+    @keyframes introBar { to { transform: translateX(100%); } }
+    @media (prefers-reduced-motion: reduce) {
+      #intro { transition: none; }
+      .intro-dot, .intro-bar::after { animation: none; }
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px;
+    }
+    .brand { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: -0.01em; color: var(--ink); }
+    .topbar-right { display: flex; align-items: center; gap: 14px; }
+
+    .lang-toggle { display: flex; border: 1px solid var(--hairline); border-radius: 999px; overflow: hidden; background: var(--bg); }
     .lang-btn {
-      font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
-      padding: 6px 12px; border: none; background: transparent;
-      color: var(--muted); cursor: pointer; transition: background 0.2s, color 0.2s;
+      font-family: var(--sans); font-weight: 600; font-size: 10px; letter-spacing: 0.08em;
+      padding: 7px 13px; border: none; background: transparent;
+      color: var(--faint); cursor: pointer; transition: background .2s, color .2s;
     }
     .lang-btn.active { background: var(--ink); color: var(--bg); }
-    .lang-btn:not(.active):hover { background: var(--border); }
+
+    .menu-btn {
+      width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--ink);
+      display: grid; place-items: center; cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18); transition: transform .25s var(--ease);
+    }
+    .menu-btn:hover { transform: scale(1.06); }
+    .menu-btn-icon { position: relative; width: 18px; height: 12px; }
+    .menu-btn-icon span {
+      position: absolute; left: 0; width: 100%; height: 1.5px; background: var(--bg);
+      transition: transform .3s var(--ease), top .3s var(--ease);
+    }
+    .menu-btn-icon span:first-child { top: 0; }
+    .menu-btn-icon span:last-child { top: 100%; transform: translateY(-100%); }
+    .menu-open .menu-btn-icon span:first-child { top: 50%; transform: translateY(-50%) rotate(45deg); }
+    .menu-open .menu-btn-icon span:last-child { top: 50%; transform: translateY(-50%) rotate(-45deg); }
+
+    /* ── Full-screen menu overlay ── */
+    #menu-overlay {
+      position: fixed; inset: 0; z-index: 400; background: var(--ink); color: var(--bg);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity .4s var(--ease), transform .4s var(--ease), visibility 0s .4s;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 100px 24px 40px;
+    }
+    #menu-overlay.open { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+    .menu-list { list-style: none; max-width: 900px; margin: 0 auto; width: 100%; }
+    .menu-list li { border-bottom: 1px solid var(--hairline-d); }
+    .menu-list li:first-child { border-top: 1px solid var(--hairline-d); }
+    .menu-item {
+      display: flex; align-items: baseline; gap: 20px; width: 100%; padding: 18px 4px;
+      background: none; border: none; text-align: left; cursor: pointer;
+      color: rgba(232,231,231,.4); transition: color .25s;
+    }
+    .menu-item:hover, .menu-item:focus-visible { color: var(--bg); }
+    .menu-item-num { font-size: 11px; font-weight: 600; letter-spacing: .1em; color: var(--accent-2); min-width: 28px; }
+    .menu-item-label { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 7vw, 4.2rem); letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
+    .menu-footer {
+      max-width: 900px; margin: 40px auto 0; width: 100%; padding-top: 20px; border-top: 1px solid var(--hairline-d);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(232,231,231,.48);
+    }
+    .menu-footer strong { display: block; margin-top: 6px; font-weight: 500; letter-spacing: .04em; color: rgba(232,231,231,.82); text-transform: none; }
+    .menu-socials { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ── link-underline-invert ── */
+    .u-link { position: relative; display: inline-block; padding-bottom: 2px; }
+    .u-link::after {
+      content: ''; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: currentColor; opacity: .85; transform: scaleX(0); transform-origin: left;
+      transition: transform .3s var(--ease);
+    }
+    .u-link:hover::after, .u-link:focus-visible::after { transform: scaleX(1); }
+
+    /* ── rolling text (whole word/line — per-character splitting breaks kerning, avoid it) ── */
+    /* align-self prevents flex parents (default align-items:stretch) from
+       taller siblings stretching this box past one line — which would let the
+       hidden duplicate line peek out below since overflow:hidden only clips
+       to this element's own (stretched) height. */
+    .roll { display: inline-block; overflow: hidden; vertical-align: top; align-self: flex-start; }
+    .roll .rt { display: grid; }
+    .roll .rt span { grid-area: 1/1; transition: transform .32s var(--ease); }
+    .roll .rt .p { transform: translate3d(0,0,0); }
+    .roll .rt .s { transform: translate3d(0,100%,0); }
+    @media (hover: hover) and (pointer: fine) {
+      a:hover .roll .rt .p, button:hover .roll .rt .p { transform: translate3d(0,-100%,0); }
+      a:hover .roll .rt .s, button:hover .roll .rt .s { transform: translate3d(0,0,0); }
+    }
 
     /* ── Hero ── */
-    #hero { padding: 160px 0 100px; border-bottom: 1px solid var(--border); }
+    #hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 140px 0 60px; overflow: hidden; }
+
+    .orb-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; will-change: transform; }
+    .orb {
+      position: absolute; border-radius: 50%;
+      width: clamp(260px, 34vw, 520px); aspect-ratio: 1;
+      top: 8%; right: -8%;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.5), transparent 24%),
+                  radial-gradient(circle at 38% 34%, #6ee7b7 0%, #0f7a4d 55%, #064e3b 100%);
+      filter: blur(60px); opacity: .28;
+      animation: orbBreathe 9s ease-in-out infinite;
+    }
+    @keyframes orbBreathe {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50%      { transform: scale(1.08) rotate(4deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { .orb { animation: none; } }
 
     .hero-label {
-      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+      position: relative; z-index: 1;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 10px;
+      width: fit-content;
     }
-    .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
-
     .status-dot {
       display: inline-block; width: 7px; height: 7px; border-radius: 50%;
       background: #22c55e; flex-shrink: 0;
@@ -102,153 +246,224 @@
     }
 
     h1 {
-      font-family: var(--serif);
-      font-size: clamp(48px, 8vw, 80px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 32px;
+      position: relative; z-index: 1;
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(50px, 10vw, 128px);
+      line-height: 0.94; letter-spacing: -0.05em; margin-bottom: 36px;
     }
-    h1 em { font-style: italic; color: var(--accent); }
+    h1 em { font-style: normal; color: var(--accent); }
 
-    .hero-desc {
-      font-size: 15px; color: var(--muted); max-width: 500px;
-      margin-bottom: 20px; line-height: 1.85;
-    }
+    .hero-desc { position: relative; z-index: 1; font-size: 16px; color: var(--muted); max-width: 480px; margin-bottom: 24px; line-height: 1.75; }
 
-    .hero-stack { display: flex; gap: 0; flex-wrap: wrap; margin-bottom: 40px; }
-    .hero-stack-item {
-      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); opacity: 0.75;
-    }
-    .hero-stack-item:not(:last-child)::after { content: ' · '; color: var(--border); opacity: 1; margin: 0 6px; }
+    .hero-stack { position: relative; z-index: 1; display: flex; gap: 0; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-stack-item { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); opacity: .85; }
+    .hero-stack-item:not(:last-child)::after { content: ' · '; color: var(--hairline); opacity: 1; margin: 0 6px; }
 
-    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-cta { position: relative; z-index: 1; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
-      font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      text-decoration: none; border: 1px solid var(--ink); color: var(--ink);
-      background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 999px;
+      font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1.5px solid var(--ink); color: var(--ink);
+      background: transparent; cursor: pointer; transition: color .3s var(--ease), border-color .3s;
+      position: relative; overflow: hidden;
     }
-    .btn:hover { background: var(--ink); color: var(--bg); }
-    .btn-accent { background: var(--ink); color: var(--bg); }
-    .btn-accent:hover { background: var(--accent); border-color: var(--accent); }
+    .btn span.fill { position: absolute; inset: 0; z-index: -1; background: var(--ink); transform-origin: bottom; transform: scaleY(0); transition: transform .5s var(--ease); border-radius: inherit; }
+    .btn:hover span.fill { transform: scaleY(1); }
+    .btn:hover { color: var(--bg); }
+    .btn-accent { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    .btn-accent span.fill { background: var(--accent); }
+    .btn-accent:hover { color: var(--bg); border-color: var(--accent); }
 
-    /* ── Sections ── */
-    section { padding: 80px 0; border-bottom: 1px solid var(--border); }
-    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 56px; }
-    .section-num { font-size: 11px; letter-spacing: 0.1em; color: var(--accent); font-weight: 400; }
-    h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; font-weight: 400; }
+    /* ── Dark zone ── */
+    .dark-zone { position: relative; z-index: 10; background: var(--ink); color: var(--bg); }
+    .dark-zone section { padding: 96px 0; border-bottom: 1px solid var(--hairline-d); }
+    .dark-zone section:last-of-type { border-bottom: none; }
+
+    .section-head { position: relative; margin-bottom: 64px; isolation: isolate; }
+    .section-num { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent-2); margin-bottom: 16px; }
+    .section-ghost {
+      position: absolute; left: -0.05em; top: -0.28em; z-index: -1; pointer-events: none;
+      font-family: var(--display); font-weight: 900; letter-spacing: -0.06em;
+      font-size: clamp(70px, 13vw, 180px); color: var(--accent-2); opacity: .08; filter: blur(1.5px);
+      white-space: nowrap;
+    }
+    h2 {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(34px, 6vw, 68px); letter-spacing: -0.035em; line-height: 1;
+    }
 
     /* ── Experience ── */
-    .exp-item {
-      display: grid; grid-template-columns: 160px 1fr; gap: 32px;
-      padding: 32px 0; border-bottom: 1px solid var(--border);
-    }
-    .exp-item:first-child { border-top: 1px solid var(--border); }
-    .exp-date { font-size: 12px; color: var(--muted); padding-top: 4px; }
-    .exp-role { font-family: var(--serif); font-size: 20px; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .exp-company { font-size: 12px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 16px; }
+    .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--hairline-d); }
+    .exp-item:first-child { border-top: 1px solid var(--hairline-d); }
+    .exp-date { font-size: 12px; font-weight: 500; color: var(--muted-d); padding-top: 4px; }
+    .exp-role { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .exp-company { font-size: 12px; font-weight: 600; color: var(--accent-2); letter-spacing: 0.06em; margin-bottom: 16px; }
     .exp-bullets { list-style: none; }
-    .exp-bullets li {
-      font-size: 13px; color: var(--muted); padding: 5px 0 5px 18px;
-      position: relative; line-height: 1.8;
-    }
-    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 7px; }
+    .exp-bullets li { font-size: 13.5px; color: var(--muted-d); padding: 5px 0 5px 18px; position: relative; line-height: 1.75; }
+    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent-2); font-size: 11px; top: 7px; }
 
     /* ── Projects ── */
     .projects-list { display: flex; flex-direction: column; }
     .project-item {
-      display: grid; grid-template-columns: 48px 1fr auto; gap: 24px;
-      align-items: start; padding: 32px 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 56px 1fr auto; gap: 24px;
+      align-items: start; padding: 36px 0; border-bottom: 1px solid var(--hairline-d);
       text-decoration: none; color: inherit;
+      transition: transform .35s var(--ease), padding-left .35s var(--ease);
     }
-    .project-item:first-child { border-top: 1px solid var(--border); }
-    .project-item:hover .project-arrow { transform: translate(4px, -4px); }
-    .project-num { font-size: 11px; color: var(--muted); padding-top: 4px; font-weight: 400; }
-    .project-title { font-family: var(--serif); font-size: 22px; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink); }
-    .project-desc { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.8; max-width: 500px; }
+    .project-item:first-child { border-top: 1px solid var(--hairline-d); }
+    .project-item:hover { transform: translateX(8px); }
+    .project-item:hover .project-arrow { transform: translate(4px, -4px); color: var(--accent-2); }
+    .project-item:hover .project-num { color: var(--accent-2); }
+    .project-num { font-size: 11px; font-weight: 700; color: var(--faint-d); padding-top: 6px; transition: color .3s; }
+    .project-title { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.025em; margin-bottom: 10px; }
+    .project-desc { font-size: 13.5px; color: var(--muted-d); margin-bottom: 16px; line-height: 1.75; max-width: 520px; }
     .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); }
-    .project-arrow { font-size: 20px; color: var(--muted); transition: transform 0.2s; padding-top: 4px; }
+    .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--hairline-d); color: var(--muted-d); }
+    .project-arrow { font-size: 20px; color: var(--faint-d); transition: transform .25s var(--ease), color .25s; padding-top: 6px; }
 
     /* ── Skills ── */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .skill-group { background: var(--bg); padding: 28px 24px; }
-    .skill-group-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--hairline-d); border: 1px solid var(--hairline-d); }
+    .skill-group { background: var(--ink); padding: 28px 24px; }
+    .skill-group-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 16px; }
     .skill-list { list-style: none; }
-    .skill-list li { font-size: 13px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid var(--border); }
+    .skill-list li { font-size: 13.5px; color: var(--muted-d); padding: 4px 0; border-bottom: 1px solid var(--hairline-d); }
     .skill-list li:last-child { border-bottom: none; }
-    .skill-list li::before { content: '— '; color: var(--accent); font-size: 11px; }
-    .skills-note { margin-top: 20px; font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
-    .skills-note em { color: var(--accent); font-style: normal; font-weight: 400; }
+    .skill-list li::before { content: '— '; color: var(--accent-2); font-size: 11px; }
+    .skills-note { margin-top: 20px; font-size: 11px; color: var(--faint-d); letter-spacing: 0.03em; }
+    .skills-note em { color: var(--accent-2); font-style: normal; font-weight: 600; }
+
+    /* ── Certificates ── */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--hairline-d); border: 1px solid var(--hairline-d); }
+    .cert-card { background: var(--ink); padding: 24px 22px; transition: background .3s; }
+    .cert-card:hover { background: #232323; }
+    .cert-title { font-family: var(--display); font-weight: 700; font-size: 14.5px; letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 8px; }
+    .cert-issuer { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent-2); margin-bottom: 4px; }
+    .cert-date { font-size: 11.5px; color: var(--muted-d); }
+    .cert-id { font-size: 10px; color: var(--faint-d); margin-top: 8px; letter-spacing: 0.02em; }
 
     /* ── About ── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .about-text p { color: var(--muted); margin-bottom: 16px; line-height: 1.9; }
+    .about-text p { color: var(--muted-d); margin-bottom: 16px; line-height: 1.85; }
     .about-text p:last-child { margin-bottom: 0; }
-    .about-aside { padding-left: 32px; border-left: 1px solid var(--border); }
+    .about-aside { padding-left: 32px; border-left: 1px solid var(--hairline-d); }
     .aside-item { margin-bottom: 32px; }
-    .aside-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .aside-value { font-size: 14px; color: var(--ink); line-height: 1.6; }
+    .aside-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 8px; }
+    .aside-value { font-size: 14px; font-weight: 500; color: var(--bg); line-height: 1.6; }
 
-    /* ── Contact ── */
-    #contact { border-bottom: none; }
-    .contact-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap; }
+    /* ── Contact / final CTA ── */
+    #contact { text-align: center; }
     .contact-heading {
-      font-family: var(--serif); font-size: clamp(36px, 6vw, 60px);
-      letter-spacing: -0.03em; line-height: 1.1; max-width: 400px;
+      font-family: var(--display); font-weight: 900; text-transform: uppercase;
+      font-size: clamp(38px, 8vw, 92px); letter-spacing: -0.05em; line-height: .96; margin-bottom: 56px;
     }
-    .contact-heading em { font-style: italic; color: var(--accent); }
-    .contact-links { display: flex; flex-direction: column; gap: 16px; }
-    .contact-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
-    .contact-link:hover { color: var(--ink); }
-    .contact-link-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); width: 64px; }
+    .contact-heading em { font-style: normal; color: var(--accent-2); }
+    .contact-heading .block { display: block; }
+
+    .contact-orb-btn {
+      width: clamp(140px, 15vw, 176px); aspect-ratio: 1; border-radius: 50%; margin: 0 auto 56px;
+      background: var(--accent); color: var(--bg); display: grid; place-items: center; text-align: center;
+      font-family: var(--display); font-weight: 700; font-size: clamp(11px, 1vw, 13px); text-transform: uppercase; letter-spacing: .04em;
+      position: relative; overflow: hidden; transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+      box-shadow: 0 18px 50px rgba(15,122,77,.25);
+    }
+    .contact-orb-btn span.fill { position: absolute; inset: 0; background: var(--bg); transform: scaleY(0); transform-origin: bottom; transition: transform .6s var(--ease); border-radius: inherit; }
+    .contact-orb-btn:hover { color: var(--accent); transform: scale(1.06); box-shadow: 0 22px 60px rgba(15,122,77,.32); }
+    .contact-orb-btn:hover span.fill { transform: scaleY(1); }
+    .contact-orb-btn span.label { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; line-height: 1.2; }
+    .contact-orb-btn .orb-arrow { font-size: 16px; transition: transform .35s var(--ease); }
+    .contact-orb-btn:hover .orb-arrow { transform: translate(2px, -2px); }
+
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px;
+      border: 1.5px solid var(--hairline-d); color: var(--muted-d); font-size: 12.5px; font-weight: 500;
+      transition: border-color .3s, color .3s;
+    }
+    .contact-link:hover { border-color: rgba(232,231,231,.6); color: var(--bg); }
+    .contact-link-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); }
 
     /* ── Footer ── */
-    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); }
+    footer.site-footer {
+      padding: 40px 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint-d);
+    }
+    footer.site-footer strong { display: block; margin-top: 6px; font-weight: 500; letter-spacing: .04em; color: var(--muted-d); text-transform: none; }
+    footer.site-footer .f-time { text-align: center; }
+    footer.site-footer .f-socials { text-align: right; }
+    .f-social-links { display: flex; gap: 14px; justify-content: flex-end; margin-top: 6px; text-transform: none; letter-spacing: .02em; }
+    @media (max-width: 640px) {
+      footer.site-footer { grid-template-columns: 1fr; text-align: left !important; gap: 20px; }
+      footer.site-footer .f-time, footer.site-footer .f-socials { text-align: left; }
+      .f-social-links { justify-content: flex-start; }
+    }
 
     /* ── Animations ── */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal { opacity: 0; transform: translateY(22px); filter: blur(6px); transition: opacity .7s var(--ease), transform .7s var(--ease), filter .7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; filter: blur(0); }
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
+      .container { padding: 0 22px; }
+      #hero { padding-top: 120px; }
       .about-grid { grid-template-columns: 1fr; }
-      .about-aside { padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 32px; }
+      .about-aside { padding-left: 0; border-left: none; border-top: 1px solid var(--hairline-d); padding-top: 32px; }
       .exp-item { grid-template-columns: 1fr; gap: 8px; }
       .project-item { grid-template-columns: 32px 1fr auto; gap: 16px; }
-      .nav-links { display: none; }
-      .contact-inner { flex-direction: column; align-items: flex-start; }
+      .menu-item-label { font-size: clamp(1.8rem, 11vw, 2.6rem); }
+      .contact-links { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
 <body>
 
-  <nav id="nav">
-    <div class="container">
-      <a href="#hero" class="nav-logo">Clarice Nunes</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#experience" data-en="Experience" data-pt="Experiência">Experience</a></li>
-          <li><a href="#projects"   data-en="Projects"   data-pt="Projetos">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#about"      data-en="About"      data-pt="Sobre">About</a></li>
-          <li><a href="#contact"    data-en="Contact"    data-pt="Contato">Contact</a></li>
-        </ul>
-        <div class="lang-toggle">
-          <button class="lang-btn active" onclick="setLang('en')">EN</button>
-          <button class="lang-btn"        onclick="setLang('pt')">PT</button>
-        </div>
+  <div id="cursor-dot"></div>
+  <div id="scroll-progress"></div>
+
+  <div id="intro" aria-hidden="true">
+    <div class="intro-mark">
+      <div class="intro-dot"></div>
+      <div class="intro-bar"></div>
+    </div>
+  </div>
+
+  <div class="topbar">
+    <a href="#hero" class="brand">Clarice Nunes</a>
+    <div class="topbar-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        onclick="setLang('pt')">PT</button>
+      </div>
+      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay">
+        <span class="menu-btn-icon"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <ul class="menu-list">
+      <li><button class="menu-item" data-target="experience"><span class="menu-item-num">01</span><span class="menu-item-label" data-en="Experience" data-pt="Experiência">Experience</span></button></li>
+      <li><button class="menu-item" data-target="projects"><span class="menu-item-num">02</span><span class="menu-item-label" data-en="Projects" data-pt="Projetos">Projects</span></button></li>
+      <li><button class="menu-item" data-target="skills"><span class="menu-item-num">03</span><span class="menu-item-label">Skills</span></button></li>
+      <li><button class="menu-item" data-target="certificates"><span class="menu-item-num">04</span><span class="menu-item-label" data-en="Certificates" data-pt="Certificados">Certificates</span></button></li>
+      <li><button class="menu-item" data-target="about"><span class="menu-item-num">05</span><span class="menu-item-label" data-en="About" data-pt="Sobre">About</span></button></li>
+      <li><button class="menu-item" data-target="contact"><span class="menu-item-num">06</span><span class="menu-item-label" data-en="Contact" data-pt="Contato">Contact</span></button></li>
+    </ul>
+    <div class="menu-footer">
+      <div>
+        <span data-en="Edition" data-pt="Edição">Edition</span>
+        <strong>2026 © Clarice Nunes</strong>
+      </div>
+      <div class="menu-socials">
+        <a href="https://github.com/claricenunes" target="_blank" class="u-link">GitHub</a>
+        <a href="https://linkedin.com/in/claricesnunes" target="_blank" class="u-link">LinkedIn</a>
       </div>
     </div>
-  </nav>
+  </div>
 
   <!-- ── HERO ── -->
   <section id="hero">
+    <div class="orb-wrap" aria-hidden="true"><div class="orb"></div></div>
     <div class="container">
       <p class="hero-label reveal">
         <span class="status-dot"></span>
@@ -263,358 +478,390 @@
         Software engineer.<br>Building systems<br>that <em>actually scale</em>.
       </h1>
       <p class="hero-desc reveal"
-         data-en="Software Engineering student with hands-on experience in PHP, Laravel, legacy system modernization, and SQL-driven data analysis. Currently shipping production code at Brazil's federal government."
-         data-pt="Estudante de Engenharia de Software com experiência prática em PHP, Laravel, modernização de sistemas legados e análise de dados com SQL. Atualmente entregando código em produção no governo federal.">
-        Software Engineering student with hands-on experience in PHP, Laravel, legacy system modernization, and SQL-driven data analysis. Currently shipping production code at Brazil's federal government.
+         data-en="Software Engineering student at UniCEUB, interning at Brazil's Ministry of Regional Development on PHP/Laravel systems — and shipping full-stack products with React, Next.js, and integrated AI on the side."
+         data-pt="Estudante de Engenharia de Software na UniCEUB, estagiando no Ministério do Desenvolvimento Regional com sistemas em PHP/Laravel — e construindo produtos full-stack com React, Next.js e IA integrada nas horas vagas.">
+        Software Engineering student at UniCEUB, interning at Brazil's Ministry of Regional Development on PHP/Laravel systems — and shipping full-stack products with React, Next.js, and integrated AI on the side.
       </p>
       <div class="hero-stack reveal">
         <span class="hero-stack-item">PHP</span>
         <span class="hero-stack-item">Laravel</span>
         <span class="hero-stack-item">Python</span>
-        <span class="hero-stack-item">PostgreSQL</span>
-        <span class="hero-stack-item">C# / .NET</span>
-        <span class="hero-stack-item">REST APIs</span>
+        <span class="hero-stack-item">React</span>
+        <span class="hero-stack-item">Next.js</span>
+        <span class="hero-stack-item">TypeScript</span>
       </div>
       <div class="hero-cta reveal">
-        <a href="#experience" class="btn btn-accent"
-           data-en="See my experience" data-pt="Ver experiência">See my experience</a>
-        <a href="#contact" class="btn"
-           data-en="Get in touch" data-pt="Entre em contato">Get in touch</a>
-        <a href="https://github.com/claricenunes" target="_blank" class="btn">GitHub ↗</a>
+        <a href="#experience" class="btn btn-accent nav-jump" data-target="experience"
+           data-en="See my experience" data-pt="Ver experiência"><span class="fill"></span>See my experience</a>
+        <a href="#contact" class="btn nav-jump" data-target="contact"
+           data-en="Get in touch" data-pt="Entre em contato"><span class="fill"></span>Get in touch</a>
+        <a href="https://github.com/claricenunes" target="_blank" class="btn"><span class="fill"></span>GitHub ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- ── EXPERIENCE ── -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">01</span>
-        <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
+  <div class="dark-zone">
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-ghost" aria-hidden="true" data-en="Work" data-pt="Carreira">Work</span>
+          <span class="section-num">01 / 06</span>
+          <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
+        </div>
+        <div>
+          <div class="exp-item reveal">
+            <div class="exp-date" data-en="01/2026 — Present" data-pt="01/2026 — Atual">01/2026 — Present</div>
+            <div>
+              <h3 class="exp-role"
+                  data-en="Software Development Intern, MIDR – CGIGEO"
+                  data-pt="Estágio, MIDR - CGIGEO">
+                Software Development Intern, MIDR – CGIGEO
+              </h3>
+              <p class="exp-company"
+                 data-en="Ministry of Regional Development · Brasília, Brazil"
+                 data-pt="Ministério do Desenvolvimento Regional · Brasília, DF">
+                Ministry of Regional Development · Brasília, Brazil
+              </p>
+              <ul class="exp-bullets">
+                <li data-en="Maintain and evolve legacy PHP/Laravel systems for geospatial data management"
+                    data-pt="Atuo na manutenção e evolução de sistemas legados em PHP/Laravel para gestão de dados geoespaciais">
+                  Maintain and evolve legacy PHP/Laravel systems for geospatial data management
+                </li>
+                <li data-en="Design database models and write complex SQL queries against geospatial datasets"
+                    data-pt="Modelagem de banco de dados e consultas SQL complexas">
+                  Design database models and write complex SQL queries against geospatial datasets
+                </li>
+                <li data-en="Build recurring analytical reports that directly support the coordination's decision-making"
+                    data-pt="Desenvolvo relatórios analíticos recorrentes que dão suporte direto à tomada de decisão da coordenação">
+                  Build recurring analytical reports that directly support the coordination's decision-making
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-date" data-en="07/2026 — Present" data-pt="07/2026 — Atual">07/2026 — Present</div>
+            <div>
+              <h3 class="exp-role"
+                  data-en="Undergraduate Research Fellow, FAPDF"
+                  data-pt="Bolsista de Iniciação Científica, FAPDF">
+                Undergraduate Research Fellow, FAPDF
+              </h3>
+              <p class="exp-company"
+                 data-en="FAPDF · Brasília, Brazil"
+                 data-pt="FAPDF · Brasília, DF">
+                FAPDF · Brasília, Brazil
+              </p>
+              <ul class="exp-bullets">
+                <li data-en="Research technology applied to volunteering, exploring how software can increase volunteer engagement"
+                    data-pt="Pesquiso tecnologia aplicada ao voluntariado, com foco em como o software pode aumentar o engajamento de voluntários">
+                  Research technology applied to volunteering, exploring how software can increase volunteer engagement
+                </li>
+                <li data-en="Develop a matchmaking system based on the Gale-Shapley algorithm"
+                    data-pt="Desenvolvo um sistema de matchmaking baseado no algoritmo de Gale-Shapley">
+                  Develop a matchmaking system based on the Gale-Shapley algorithm
+                </li>
+                <li data-en="Analyze data and evaluate solutions to increase volunteer engagement"
+                    data-pt="Realizo análise de dados e avaliação de soluções para aumentar o engajamento de voluntários">
+                  Analyze data and evaluate solutions to increase volunteer engagement
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-date" data-en="2023 — 2024" data-pt="2023 — 2024">2023 — 2024</div>
+            <div>
+              <h3 class="exp-role"
+                  data-en="Exchange Student"
+                  data-pt="Intercâmbio Estudantil">
+                Exchange Student
+              </h3>
+              <p class="exp-company"
+                 data-en="Cleveland, Ohio · United States"
+                 data-pt="Cleveland, Ohio · Estados Unidos">
+                Cleveland, Ohio · United States
+              </p>
+              <ul class="exp-bullets">
+                <li data-en="Lived and studied for a year in Cleveland, Ohio, reaching fluent English"
+                    data-pt="Vivi e estudei por um ano em Cleveland, Ohio, alcançando fluência em inglês">
+                  Lived and studied for a year in Cleveland, Ohio, reaching fluent English
+                </li>
+                <li data-en="Adapted fast to an unfamiliar academic system and culture, on my own"
+                    data-pt="Me adaptei rapidamente a um sistema acadêmico e cultura desconhecidos, sozinha">
+                  Adapted fast to an unfamiliar academic system and culture, on my own
+                </li>
+                <li data-en="Built the cross-cultural communication skills I use daily with English-speaking teams"
+                    data-pt="Desenvolvi as habilidades de comunicação intercultural que uso diariamente com times que falam inglês">
+                  Built the cross-cultural communication skills I use daily with English-speaking teams
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="exp-item reveal">
-          <div class="exp-date" data-en="07/2026 — Present" data-pt="07/2026 — Atual">07/2026 — Present</div>
-          <div>
-            <h3 class="exp-role"
-                data-en="Undergraduate Research Fellow, FAPDF"
-                data-pt="Bolsista de Iniciação Científica, FAPDF">
-              Undergraduate Research Fellow, FAPDF
-            </h3>
-            <p class="exp-company"
-               data-en="FAPDF · Brasília, Brazil"
-               data-pt="FAPDF · Brasília, DF">
-              FAPDF · Brasília, Brazil
-            </p>
-            <ul class="exp-bullets">
-              <li data-en="Research technology applied to volunteering, exploring how software can increase volunteer engagement"
-                  data-pt="Pesquiso tecnologia aplicada ao voluntariado, com foco em como o software pode aumentar o engajamento de voluntários">
-                Research technology applied to volunteering, exploring how software can increase volunteer engagement
-              </li>
-              <li data-en="Develop a matchmaking system based on the Gale-Shapley algorithm"
-                  data-pt="Desenvolvo um sistema de matchmaking baseado no algoritmo de Gale-Shapley">
-                Develop a matchmaking system based on the Gale-Shapley algorithm
-              </li>
-              <li data-en="Analyze data and evaluate solutions to increase volunteer engagement"
-                  data-pt="Realizo análise de dados e avaliação de soluções para aumentar o engajamento de voluntários">
-                Analyze data and evaluate solutions to increase volunteer engagement
-              </li>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-ghost" aria-hidden="true" data-en="Build" data-pt="Código">Build</span>
+          <span class="section-num">02 / 06</span>
+          <h2 data-en="Projects" data-pt="Projetos">Projects</h2>
+        </div>
+        <div class="projects-list">
+
+          <a href="https://vivecomunidade.com.br" target="_blank" class="project-item reveal">
+            <span class="project-num">01</span>
+            <div class="project-body">
+              <h3 class="project-title"
+                  data-en="VIVE — Community Platform"
+                  data-pt="VIVE — Plataforma Comunidade">
+                VIVE — Community Platform
+              </h3>
+              <p class="project-desc"
+                 data-en="Full-stack event and volunteering management platform with 2,000+ registered users in Brasília. Architected and built from zero: real-time event sign-ups (Firestore onSnapshot), admin dashboard with monthly metrics, financial module with CSV/Excel export, gamification ranking, and waitlist with slot control."
+                 data-pt="Plataforma full-stack de gestão de eventos e voluntariado com mais de 2.000 usuários cadastrados no DF. Arquitetei e desenvolvi do zero: inscrições em tempo real (Firestore onSnapshot), painel admin com métricas mensais, módulo financeiro com exportação CSV/Excel, ranking gamificado e lista de espera com controle de vagas.">
+                Full-stack event and volunteering management platform with 2,000+ registered users in Brasília. Architected and built from zero: real-time event sign-ups (Firestore onSnapshot), admin dashboard with monthly metrics, financial module with CSV/Excel export, gamification ranking, and waitlist with slot control.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React 19</span><span class="tag">Firebase</span>
+                <span class="tag">Firestore</span><span class="tag">Vite</span>
+                <span class="tag">Live ↗</span>
+              </div>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+          <a href="https://github.com/claricenunes/MemoriaVIVA" target="_blank" class="project-item reveal">
+            <span class="project-num">02</span>
+            <div class="project-body">
+              <h3 class="project-title"
+                  data-en="Memória Viva — Wellness PWA for Seniors"
+                  data-pt="Memória Viva — PWA de Bem-Estar para Idosos">
+                Memória Viva — Wellness PWA for Seniors
+              </h3>
+              <p class="project-desc"
+                 data-en="Mobile-first PWA for seniors in early-stage Alzheimer's care. Health and schedule reminders, assisted memory logging, and offline support (Service Worker, multi-layer cache) — built with accessibility (WCAG) as a first-class requirement."
+                 data-pt="PWA mobile-first para idosos com Alzheimer em estágio inicial. Lembretes de saúde e agenda, registro assistido de memórias e suporte offline (Service Worker, cache multi-camada), com foco em acessibilidade (WCAG).">
+                Mobile-first PWA for seniors in early-stage Alzheimer's care. Health and schedule reminders, assisted memory logging, and offline support (Service Worker, multi-layer cache) — built with accessibility (WCAG) as a first-class requirement.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Next.js 15</span><span class="tag">React 19</span>
+                <span class="tag">Supabase</span><span class="tag">Service Worker</span>
+              </div>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+          <a href="https://github.com/claricenunes/numiFinanceiro" target="_blank" class="project-item reveal">
+            <span class="project-num">03</span>
+            <div class="project-body">
+              <h3 class="project-title"
+                  data-en="Numi — Personal Finance App"
+                  data-pt="Numi — App de Finanças Pessoais">
+                Numi — Personal Finance App
+              </h3>
+              <p class="project-desc"
+                 data-en="Full personal-finance web app with integrated AI analysis (multi-provider: Google Gemini + DeepSeek with automatic fallback), an interactive dashboard (Recharts), CSV import/export, and complete authentication."
+                 data-pt="Aplicação web completa de gestão financeira pessoal com análise por IA (multi-provider: Google Gemini + DeepSeek com fallback automático), dashboard interativo (Recharts), importação/exportação CSV e autenticação completa.">
+                Full personal-finance web app with integrated AI analysis (multi-provider: Google Gemini + DeepSeek with automatic fallback), an interactive dashboard (Recharts), CSV import/export, and complete authentication.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Next.js 16</span><span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS v4</span><span class="tag">Supabase</span>
+              </div>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">03 / 06</span>
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <p class="skill-group-label">Backend</p>
+            <ul class="skill-list">
+              <li>PHP</li>
+              <li>Laravel</li>
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">Frontend</p>
+            <ul class="skill-list">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-en="Data & Cloud" data-pt="Dados & Cloud">Data & Cloud</p>
+            <ul class="skill-list">
+              <li>Supabase (PostgreSQL)</li>
+              <li>Firebase</li>
+              <li data-en="AI integration (Gemini, DeepSeek)" data-pt="Integração com IA (Gemini, DeepSeek)">AI integration (Gemini, DeepSeek)</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-en="Tooling" data-pt="Ferramentas">Tooling</p>
+            <ul class="skill-list">
+              <li>Git & GitHub</li>
+              <li data-en="Legacy system migration" data-pt="Migração de sistemas legados">Legacy system migration</li>
             </ul>
           </div>
         </div>
-        <div class="exp-item reveal">
-          <div class="exp-date" data-en="2026 — Present" data-pt="2026 — Atual">2026 — Present</div>
-          <div>
-            <h3 class="exp-role"
-                data-en="Web Developer & Data Intern"
-                data-pt="Desenvolvimento Web & Estagiária em Análise de Dados">
-              Software Developer & Data Intern
-            </h3>
-            <p class="exp-company"
-               data-en="Ministry of Regional Development · Brasília, Brazil"
-               data-pt="Ministério do Desenvolvimento Regional · Brasília, Brasil">
-              Ministry of Regional Development · Brasília, Brazil
-            </p>
-            <ul class="exp-bullets">
-              <li data-en="Modernize and maintain legacy PHP/Laravel systems supporting internal government operations at scale"
-                  data-pt="Modernizo e mantenho sistemas legados em PHP/Laravel que suportam operações internas do governo em escala">
-                Modernize and maintain legacy PHP/Laravel systems supporting internal government operations at scale
-              </li>
-              <li data-en="Design and optimize PostgreSQL queries to generate analytical reports that inform ministerial decision-making"
-                  data-pt="Desenvolvo e otimizo queries PostgreSQL para geração de relatórios analíticos que embasam decisões ministeriais">
-                Design and optimize PostgreSQL queries to generate analytical reports that inform ministerial decision-making
-              </li>
-              <li data-en="Diagnose and resolve production technical debt, improving long-term codebase maintainability"
-                  data-pt="Diagnostico e resolvo débitos técnicos em produção, melhorando a manutenibilidade do código a longo prazo">
-                Diagnose and resolve production technical debt, improving long-term codebase maintainability
-              </li>
-              <li data-en="Collaborate with senior engineers on architectural decisions for system modernization initiatives"
-                  data-pt="Colaboro com engenheiros sênior em decisões de arquitetura para iniciativas de modernização de sistemas">
-                Collaborate with senior engineers on architectural decisions for system modernization initiatives
-              </li>
-            </ul>
+      </div>
+    </section>
+
+    <!-- ── CERTIFICATES ── -->
+    <section id="certificates">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">04 / 06</span>
+          <h2 data-en="Certificates" data-pt="Certificados">Certificates</h2>
+        </div>
+        <div class="cert-grid reveal">
+          <div class="cert-card">
+            <p class="cert-title">CS50's Introduction to Cybersecurity</p>
+            <p class="cert-issuer">HarvardX / edX</p>
+            <p class="cert-date" data-en="Issued July 2026" data-pt="Emitido em julho de 2026">Issued July 2026</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title">Introduction to Model Context Protocol</p>
+            <p class="cert-issuer">Anthropic</p>
+            <p class="cert-date" data-en="Issued June 2026" data-pt="Emitido em junho de 2026">Issued June 2026</p>
+            <p class="cert-id">ID ozn22kysnk86</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title">Building with the Claude API</p>
+            <p class="cert-issuer">Anthropic</p>
+            <p class="cert-date" data-en="Issued May 2026" data-pt="Emitido em maio de 2026">Issued May 2026</p>
+            <p class="cert-id">ID so6sij2tg4pz</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title" data-en="Python — Santander Open Academy" data-pt="Python - Santander Open Academy">Python — Santander Open Academy</p>
+            <p class="cert-issuer">Santander</p>
+            <p class="cert-date" data-en="Completed August 2025" data-pt="Finalizado em agosto de 2025">Completed August 2025</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title">Claude Code 101</p>
+            <p class="cert-issuer">Anthropic</p>
+            <p class="cert-date" data-en="Issued June 2026" data-pt="Emitido em junho de 2026">Issued June 2026</p>
+            <p class="cert-id">ID ondaxnv4aueq</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title" data-en="Practicing SQL — Alura" data-pt="Praticando SQL - Alura">Practicing SQL — Alura</p>
+            <p class="cert-issuer">Alura</p>
+            <p class="cert-date" data-en="Completed February 2026" data-pt="Finalizado em fevereiro de 2026">Completed February 2026</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title">AI Fluency: Framework & Foundations</p>
+            <p class="cert-issuer">Anthropic</p>
+            <p class="cert-date" data-en="Issued June 2026" data-pt="Emitido em junho de 2026">Issued June 2026</p>
+            <p class="cert-id">ID nvh5ujqhmp6j</p>
+          </div>
+          <div class="cert-card">
+            <p class="cert-title" data-en="Laravel: Building an Application with MVC" data-pt="Laravel: criando uma aplicação com MVC">Laravel: Building an Application with MVC</p>
+            <p class="cert-issuer">Alura</p>
+            <p class="cert-date" data-en="Completed April 2026" data-pt="Finalizado em abril de 2026">Completed April 2026</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── PROJECTS ── -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">02</span>
-        <h2 data-en="Projects" data-pt="Projetos">Projects</h2>
-      </div>
-      <div class="projects-list">
-
-        <a href="https://vivecomunidade.com.br" target="_blank" class="project-item reveal">
-          <span class="project-num">01</span>
-          <div class="project-body">
-            <h3 class="project-title"
-                data-en="VIVE — Community Platform"
-                data-pt="VIVE — Plataforma Comunidade">
-              VIVE — Community Platform
-            </h3>
-            <p class="project-desc"
-               data-en="Full-stack event and volunteering management platform with 1,000+ registered users in Brasília. Architected and built from zero: real-time event sign-ups (Firestore onSnapshot), admin dashboard with monthly metrics, financial module with CSV/Excel export, gamification ranking, and waitlist with slot control."
-               data-pt="Plataforma full-stack de gestão de eventos e voluntariado com mais de 2.000 usuários cadastrados no DF. Arquitetei e desenvolvi do zero: inscrições em tempo real (Firestore onSnapshot), painel admin com métricas mensais, módulo financeiro com exportação CSV/Excel, ranking gamificado e lista de espera com controle de vagas.">
-              Full-stack event and volunteering management platform with 2,000+ registered users in Brasília. Architected and built from zero: real-time event sign-ups (Firestore onSnapshot), admin dashboard with monthly metrics, financial module with CSV/Excel export, gamification ranking, and waitlist with slot control.
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">05 / 06</span>
+          <h2 data-en="About me" data-pt="Sobre mim">About me</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-en="Software Engineering student at UniCEUB in Brasília, currently interning at Brazil's Ministry of Regional Development (MIDR – CGIGEO) — maintaining PHP/Laravel systems for geospatial data and writing the SQL behind the coordination's analytical reports."
+               data-pt="Estudante de Engenharia de Software na UniCEUB, em Brasília, atualmente estagiando no Ministério do Desenvolvimento Regional (MIDR – CGIGEO) — mantendo sistemas em PHP/Laravel para dados geoespaciais e escrevendo o SQL por trás dos relatórios analíticos da coordenação.">
+              Software Engineering student at UniCEUB in Brasília, currently interning at Brazil's Ministry of Regional Development (MIDR – CGIGEO) — maintaining PHP/Laravel systems for geospatial data and writing the SQL behind the coordination's analytical reports.
             </p>
-            <div class="project-tags">
-              <span class="tag">React 19</span><span class="tag">Firebase</span>
-              <span class="tag">Firestore</span><span class="tag">Vite</span>
-              <span class="tag">Live ↗</span>
+            <p data-en="I spent 2023–2024 as an exchange student in Cleveland, Ohio, which gave me fluent English and the ability to adapt fast in unfamiliar environments. I communicate clearly with both engineers and non-technical stakeholders."
+               data-pt="Passei 2023–2024 como intercambista em Cleveland, Ohio, o que me deu inglês fluente e a capacidade de me adaptar rapidamente em ambientes desconhecidos. Me comunico com clareza tanto com engenheiros quanto com stakeholders não técnicos.">
+              I spent 2023–2024 as an exchange student in Cleveland, Ohio, which gave me fluent English and the ability to adapt fast in unfamiliar environments. I communicate clearly with both engineers and non-technical stakeholders.
+            </p>
+            <p data-en="Long-term, I'm moving toward AI-applied engineering — building the infrastructure layer where backend systems meet machine learning at scale."
+               data-pt="A longo prazo, estou caminhando para engenharia aplicada com IA — construindo a camada de infraestrutura onde sistemas de backend encontram machine learning em escala.">
+              Long-term, I'm moving toward AI-applied engineering — building the infrastructure layer where backend systems meet machine learning at scale.
+            </p>
+          </div>
+          <div class="about-aside reveal">
+            <div class="aside-item">
+              <p class="aside-label" data-en="Currently" data-pt="Atualmente">Currently</p>
+              <p class="aside-value"
+                 data-en="Software Development Intern<br>MIDR – CGIGEO"
+                 data-pt="Estagiária de Desenvolvimento<br>MIDR - CGIGEO">
+                Software Development Intern<br>MIDR – CGIGEO
+              </p>
+            </div>
+            <div class="aside-item">
+              <p class="aside-label" data-en="Education" data-pt="Formação">Education</p>
+              <p class="aside-value"
+                 data-en="Software Engineering, UniCEUB<br>2025 – 2029"
+                 data-pt="Engenharia de Software, UniCEUB<br>2025 – 2029">
+                Software Engineering, UniCEUB<br>2025 – 2029
+              </p>
+            </div>
+            <div class="aside-item">
+              <p class="aside-label" data-en="Languages" data-pt="Idiomas">Languages</p>
+              <p class="aside-value"
+                 data-en="Portuguese (native)<br>English (fluent)"
+                 data-pt="Português (nativo)<br>Inglês (fluente)">
+                Portuguese (native)<br>English (fluent)
+              </p>
+            </div>
+            <div class="aside-item">
+              <p class="aside-label" data-en="Looking for" data-pt="Buscando">Looking for</p>
+              <p class="aside-value"
+                 data-en="Remote Data or AI engineering roles"
+                 data-pt="Vagas remotas em Dados ou engenharia de IA">
+                Remote Data or AI engineering roles
+              </p>
             </div>
           </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-        <a href="https://github.com/claricenunes/atendimentoIA" target="_blank" class="project-item reveal">
-          <span class="project-num">02</span>
-          <div class="project-body">
-            <h3 class="project-title"
-                data-en="WhatsApp AI Agent"
-                data-pt="Agente de IA para WhatsApp">
-              WhatsApp AI Agent
-            </h3>
-            <p class="project-desc"
-               data-en="AI-powered customer service agent over WhatsApp using GPT-4o-mini. Built with FastAPI and Clean Architecture — includes Function Calling for external API integration, automatic escalation to human agents, and a real-time monitoring dashboard. Designed to scale as a microservice."
-               data-pt="Agente de atendimento via WhatsApp com GPT-4o-mini. Desenvolvido com FastAPI e Clean Architecture — inclui Function Calling para integração com APIs externas, escalonamento automático para atendimento humano e dashboard de monitoramento em tempo real. Projetado para escalar como microsserviço.">
-              AI-powered customer service agent over WhatsApp using GPT-4o-mini. Built with FastAPI and Clean Architecture — includes Function Calling for external API integration, automatic escalation to human agents, and a real-time monitoring dashboard. Designed to scale as a microservice.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">OpenAI</span><span class="tag">PostgreSQL</span>
-              <span class="tag">Docker</span>
-            </div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-        <a href="https://github.com/claricenunes/poke_site" target="_blank" class="project-item reveal">
-          <span class="project-num">03</span>
-          <div class="project-body">
-            <h3 class="project-title"
-                data-en="Restaurant Web Platform"
-                data-pt="Plataforma Web para Restaurante">
-              Restaurant Web Platform
-            </h3>
-            <p class="project-desc"
-               data-en="Full-stack application with a digital menu, user authentication, and PostgreSQL persistence. Built on Laravel's MVC architecture — covers the full backend lifecycle from schema design to API endpoints and session handling."
-               data-pt="Aplicação full-stack com cardápio digital, autenticação de usuários e persistência em PostgreSQL. Construída na arquitetura MVC do Laravel — cobre o ciclo completo de backend, do design do schema aos endpoints de API e gerenciamento de sessão.">
-              Full-stack application with a digital menu, user authentication, and PostgreSQL persistence. Built on Laravel's MVC architecture — covers the full backend lifecycle from schema design to API endpoints and session handling.
-            </p>
-            <div class="project-tags">
-              <span class="tag">PHP</span><span class="tag">Laravel</span>
-              <span class="tag">PostgreSQL</span><span class="tag">REST API</span>
-            </div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-        <a href="https://github.com/claricenunes/jubart_data" target="_blank" class="project-item reveal">
-          <span class="project-num">04</span>
-          <div class="project-body">
-            <h3 class="project-title"
-                data-en="Analytics Platform Rebuild"
-                data-pt="Reconstrução de Plataforma Analytics">
-              Analytics Platform Rebuild
-            </h3>
-            <p class="project-desc"
-               data-en="Rebuilt a data company's web platform from scratch — reorganized information architecture, improved performance, and wired Python-based data pipelines to the frontend. Focused on clarity for technical end-users."
-               data-pt="Reconstrução completa da plataforma web de uma empresa de dados — reorganização da arquitetura de informação, melhoria de performance e integração de pipelines Python ao frontend. Foco em clareza para usuários técnicos.">
-              Rebuilt a data company's web platform from scratch — reorganized information architecture, improved performance, and wired Python-based data pipelines to the frontend. Focused on clarity for technical end-users.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">PHP</span>
-              <span class="tag">Laravel</span><span class="tag">PostgreSQL</span>
-            </div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-        <a href="https://github.com/claricenunes/WebApi" target="_blank" class="project-item reveal">
-          <span class="project-num">05</span>
-          <div class="project-body">
-            <h3 class="project-title"
-                data-en="RESTful Web API"
-                data-pt="API Web RESTful">
-              RESTful Web API
-            </h3>
-            <p class="project-desc"
-               data-en="RESTful API in C# and .NET built around solid OOP principles — clean separation of concerns, proper HTTP verb semantics, and a modular structure that mirrors enterprise-grade backend patterns."
-               data-pt="API RESTful em C# e .NET construída sobre princípios sólidos de POO — separação clara de responsabilidades, semântica correta de verbos HTTP e estrutura modular que espelha padrões de backend empresarial.">
-              RESTful API in C# and .NET built around solid OOP principles — clean separation of concerns, proper HTTP verb semantics, and a modular structure that mirrors enterprise-grade backend patterns.
-            </p>
-            <div class="project-tags">
-              <span class="tag">C#</span><span class="tag">.NET</span>
-              <span class="tag">REST API</span><span class="tag">OOP</span>
-            </div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SKILLS ── -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">03</span>
-        <h2>Skills</h2>
-      </div>
-      <div class="skills-grid reveal">
-        <div class="skill-group">
-          <p class="skill-group-label">Backend</p>
-          <ul class="skill-list">
-            <li>PHP</li>
-            <li>Laravel</li>
-            <li>Python</li>
-            <li>C# / .NET</li>
-            <li>REST APIs</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label" data-en="Data & Database" data-pt="Dados & Banco">Data & Database</p>
-          <ul class="skill-list">
-            <li>PostgreSQL</li>
-            <li>SQL</li>
-            <li>Data analysis</li>
-            <li>Report pipelines</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label">Frontend</p>
-          <ul class="skill-list">
-            <li>JavaScript</li>
-            <li>HTML & CSS</li>
-            <li>Blade (Laravel)</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label" data-en="Tooling" data-pt="Ferramentas">Tooling</p>
-          <ul class="skill-list">
-            <li>Git & GitHub</li>
-            <li>Legacy system migration</li>
-            <li>Technical debt triage</li>
-            <li>Figma</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label" data-en="Exploring" data-pt="Explorando">Exploring</p>
-          <ul class="skill-list">
-            <li>AI / LLM integration</li>
-            <li>ML with Python</li>
-            <li>System design</li>
-            <li>API design patterns</li>
-          </ul>
         </div>
       </div>
-      <p class="skills-note reveal">
-        <span data-en="&ldquo;Exploring&rdquo; = actively learning — not production experience yet."
-              data-pt="&ldquo;Explorando&rdquo; = aprendendo ativamente — sem experiência em produção ainda.">
-          <em>Exploring</em> = actively learning — not production experience yet.
-        </span>
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── ABOUT ── -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">04</span>
-        <h2 data-en="About me" data-pt="Sobre mim">About me</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p data-en="Software Engineering student in Brasília, currently working on production systems at Brazil's Ministry of Regional Development — building PHP/Laravel backends and writing SQL against legacy government databases."
-             data-pt="Estudante de Engenharia de Software em Brasília, atualmente trabalhando em sistemas de produção no Ministério do Desenvolvimento Regional — desenvolvendo backends em PHP/Laravel e escrevendo SQL contra bancos de dados governamentais legados.">
-            Software Engineering student in Brasília, currently working on production systems at Brazil's Ministry of Regional Development — building PHP/Laravel backends and writing SQL against legacy government databases.
-          </p>
-          <p data-en="I spent a year in Ohio, US, which gave me fluent English and the ability to adapt fast in unfamiliar environments. I communicate clearly with both engineers and non-technical stakeholders."
-             data-pt="Passei um ano em Ohio, EUA, o que me deu inglês fluente e a capacidade de me adaptar rapidamente em ambientes desconhecidos. Me comunico com clareza tanto com engenheiros quanto com stakeholders não técnicos.">
-            I spent a year in Ohio, US, which gave me fluent English and the ability to adapt fast in unfamiliar environments. I communicate clearly with both engineers and non-technical stakeholders.
-          </p>
-          <p data-en="Long-term, I'm moving toward AI-applied engineering — building the infrastructure layer where backend systems meet machine learning at scale."
-             data-pt="A longo prazo, estou caminhando para engenharia aplicada com IA — construindo a camada de infraestrutura onde sistemas de backend encontram machine learning em escala.">
-            Long-term, I'm moving toward AI-applied engineering — building the infrastructure layer where backend systems meet machine learning at scale.
-          </p>
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal" style="text-align:left">
+          <span class="section-num">06 / 06</span>
         </div>
-        <div class="about-aside reveal">
-          <div class="aside-item">
-            <p class="aside-label" data-en="Currently" data-pt="Atualmente">Currently</p>
-            <p class="aside-value"
-               data-en="Web Developer & Data Intern<br>Ministry of Regional Development"
-               data-pt="Estagiária Desenvolvedora Web & Dados<br>Ministério do Desenvolvimento Regional">
-              Web Developer & Data Intern<br>Ministry of Regional Development
-            </p>
-          </div>
-          <div class="aside-item">
-            <p class="aside-label" data-en="Education" data-pt="Formação">Education</p>
-            <p class="aside-value"
-               data-en="B.Sc. Software Engineering<br>in progress"
-               data-pt="Engenharia de Software<br>em andamento">
-              B.Sc. Software Engineering<br>in progress
-            </p>
-          </div>
-          <div class="aside-item">
-            <p class="aside-label" data-en="Languages" data-pt="Idiomas">Languages</p>
-            <p class="aside-value"
-               data-en="Portuguese (native)<br>English (fluent)"
-               data-pt="Português (nativo)<br>Inglês (fluente)">
-              Portuguese (native)<br>English (fluent)
-            </p>
-          </div>
-          <div class="aside-item">
-            <p class="aside-label" data-en="Looking for" data-pt="Buscando">Looking for</p>
-            <p class="aside-value"
-               data-en="Remote Data or AI engineering roles"
-               data-pt="Vagas remotas em Dados ou engenharia de IA">
-              Remote Data or AI engineering roles
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONTACT ── -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">05</span>
-        <h2 data-en="Contact" data-pt="Contato">Contact</h2>
-      </div>
-      <div class="contact-inner">
         <h2 class="contact-heading reveal"
             data-en="Let's build<br>something <em>real</em><br>together."
             data-pt="Vamos construir<br>algo <em>real</em><br>juntos.">
-          Let's build<br>something <em>real</em><br>together.
+          <span class="block">Let's build</span><span class="block">something <em>real</em></span><span class="block">together.</span>
         </h2>
+
+        <a href="mailto:euclaricenunes@gmail.com" class="contact-orb-btn reveal">
+          <span class="fill"></span>
+          <span class="label">
+            <span class="orb-text" data-en="Email me" data-pt="E-mail">Email me</span>
+            <span class="orb-arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+
         <div class="contact-links reveal">
           <a href="mailto:euclaricenunes@gmail.com" class="contact-link">
             <span class="contact-link-label">Email</span>
@@ -630,21 +877,104 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container">
-    <footer>
-      <span>© 2026 Clarice Nunes</span>
-    </footer>
+    <div class="container">
+      <footer class="site-footer">
+        <div class="f-edition">
+          <span data-en="Edition" data-pt="Edição">Edition</span>
+          <strong>2026 © Clarice Nunes</strong>
+        </div>
+        <div class="f-time">
+          <span data-en="Local time" data-pt="Horário local">Local time</span>
+          <strong id="local-time">--:--:--</strong>
+        </div>
+        <div class="f-socials">
+          <span data-en="Elsewhere" data-pt="Outros links">Elsewhere</span>
+          <div class="f-social-links">
+            <a href="https://github.com/claricenunes" target="_blank" class="u-link">GitHub</a>
+            <a href="https://linkedin.com/in/claricesnunes" target="_blank" class="u-link">LinkedIn</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
   </div>
 
   <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
+    /* ── Intro overlay ── */
+    document.documentElement.dataset.intro = 'pending';
+    const introEl = document.getElementById('intro');
+    window.addEventListener('load', () => {
+      window.setTimeout(() => {
+        introEl.classList.add('done');
+        document.documentElement.dataset.intro = 'done';
+      }, 500);
     });
 
+    /* ── Scroll progress + hero parallax ── */
+    const progressBar = document.getElementById('scroll-progress');
+    const orbWrap = document.querySelector('.orb-wrap');
+    const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll() {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      progressBar.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+      if (orbWrap && !reduceMotionQuery.matches) {
+        const y = Math.min(doc.scrollTop, 600);
+        orbWrap.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Custom cursor (fine pointers only) ── */
+    const cursorDot = document.getElementById('cursor-dot');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.documentElement.classList.add('cursor-ready');
+      window.addEventListener('mousemove', (e) => {
+        cursorDot.classList.add('live');
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('a, button, .reveal')) cursorDot.classList.toggle('hover', !!e.target.closest('a, button'));
+      });
+    }
+
+    /* ── Menu overlay ── */
+    const menuBtn = document.getElementById('menu-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+    function closeMenu() {
+      menuOverlay.classList.remove('open');
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      menuBtn.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    function openMenu() {
+      menuOverlay.classList.add('open');
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      menuBtn.classList.add('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    menuBtn.addEventListener('click', () => {
+      menuOverlay.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    document.querySelectorAll('.menu-item, .nav-jump').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        const targetId = el.dataset.target;
+        if (targetId) {
+          e.preventDefault();
+          closeMenu();
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    /* ── Scroll reveal ── */
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -656,6 +986,44 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
+    /* ── Rolling text (whole word slides up revealing a duplicate — keeps natural kerning) ── */
+    function wrapRolling(el) {
+      // Idempotent: reading el.textContent after a previous wrap would concatenate
+      // both the primary and duplicate copy, doubling the string on every re-run
+      // (e.g. every language toggle). Read from the existing primary span instead.
+      const existingPrimary = el.querySelector('.rt > .p');
+      const text = existingPrimary ? existingPrimary.textContent : el.textContent;
+      el.innerHTML = '';
+      el.classList.add('roll');
+      const track = document.createElement('span');
+      track.className = 'rt';
+      const p = document.createElement('span');
+      p.className = 'p';
+      p.textContent = text;
+      const s = document.createElement('span');
+      s.className = 's';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = text;
+      track.appendChild(p);
+      track.appendChild(s);
+      el.appendChild(track);
+    }
+    const rollTargets = () => document.querySelectorAll('.u-link, .contact-link-label, .menu-item-label, .orb-text');
+    rollTargets().forEach(wrapRolling);
+
+    /* ── Local time (Brasília) ── */
+    const timeEl = document.getElementById('local-time');
+    function updateLocalTime() {
+      if (!timeEl) return;
+      const formatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false,
+      });
+      timeEl.textContent = formatter.format(new Date()) + ' BRT';
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    /* ── Language toggle ── */
     function setLang(lang) {
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
@@ -664,6 +1032,7 @@
         el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.pt;
       });
       document.documentElement.lang = lang;
+      rollTargets().forEach(wrapRolling);
     }
   </script>
 
