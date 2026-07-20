@@ -29,6 +29,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
 
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Clarice Nunes de Oliveira",
+    "alternateName": "Clarice Nunes",
+    "jobTitle": "Software Engineering Student",
+    "description": "Software Engineering student at UniCEUB. PHP, Laravel, Python, React, Next.js, and AI-integrated products.",
+    "url": "https://claricenunes.github.io",
+    "email": "mailto:euclaricenunes@gmail.com",
+    "sameAs": [
+      "https://github.com/claricenunes",
+      "https://linkedin.com/in/claricesnunes"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brasília",
+      "addressRegion": "DF",
+      "addressCountry": "BR"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "UniCEUB"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Ministério do Desenvolvimento Regional"
+    },
+    "knowsAbout": ["PHP", "Laravel", "Python", "SQL", "React", "Next.js", "TypeScript", "FastAPI", "Firebase", "Supabase"]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -321,6 +354,8 @@
     .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--hairline-d); color: var(--muted-d); }
     .project-arrow { font-size: 20px; color: var(--faint-d); transition: transform .25s var(--ease), color .25s; padding-top: 6px; }
+    .project-image { grid-column: 1 / -1; margin-top: 24px; border-radius: 12px; overflow: hidden; border: 1px solid var(--hairline-d); }
+    .project-image img { display: block; width: 100%; height: auto; }
 
     /* ── Skills ── */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--hairline-d); border: 1px solid var(--hairline-d); }
@@ -491,7 +526,9 @@
         <span class="hero-stack-item">TypeScript</span>
       </div>
       <div class="hero-cta reveal">
-        <a href="#experience" class="btn btn-accent nav-jump" data-target="experience"
+        <a href="assets/Clarice-Nunes-Resume.pdf" download class="btn btn-accent"
+           data-en="Download resume ↓" data-pt="Baixar currículo ↓"><span class="fill"></span>Download resume ↓</a>
+        <a href="#experience" class="btn nav-jump" data-target="experience"
            data-en="See my experience" data-pt="Ver experiência"><span class="fill"></span>See my experience</a>
         <a href="#contact" class="btn nav-jump" data-target="contact"
            data-en="Get in touch" data-pt="Entre em contato"><span class="fill"></span>Get in touch</a>
@@ -632,6 +669,9 @@
               </div>
             </div>
             <span class="project-arrow">↗</span>
+            <div class="project-image">
+              <img src="assets/project-vive.jpg" alt="VIVE — Community Platform screenshot" loading="lazy" width="1280" height="800">
+            </div>
           </a>
 
           <a href="https://github.com/claricenunes/MemoriaVIVA" target="_blank" class="project-item reveal">
@@ -863,6 +903,10 @@
         </a>
 
         <div class="contact-links reveal">
+          <a href="assets/Clarice-Nunes-Resume.pdf" download class="contact-link">
+            <span class="contact-link-label" data-en="Resume" data-pt="Currículo">Resume</span>
+            <span data-en="Download PDF ↓" data-pt="Baixar PDF ↓">Download PDF ↓</span>
+          </a>
           <a href="mailto:euclaricenunes@gmail.com" class="contact-link">
             <span class="contact-link-label">Email</span>
             euclaricenunes@gmail.com
