@@ -1186,12 +1186,21 @@
     /* ── Hero "em" typewriter: types the highlighted word, then holds; the
        trailing period (kept outside the <em> so it stays black, not accent)
        fades in only once typing is done. Re-run after every language swap
-       since setLang() replaces the h1's innerHTML wholesale. ── */
+       since setLang() replaces the h1's innerHTML wholesale.
+       Called from two places on load (the PT-BR default and the scroll-
+       reveal observer) that can land on the same <em> a few ms apart — if
+       both were left to run, their setTimeout chains would interleave
+       characters into the same textContent (e.g. "realmente" scrambling
+       into "rlemaente"). Cancelling any run already in flight, and reading
+       the target word from a snapshot taken once per <em> instead of from
+       the live (possibly half-typed) textContent, makes repeat calls safe. ── */
     function typewriterEm() {
       const em = document.querySelector('h1 em');
       const dot = document.querySelector('.h1-dot');
       if (!em) return;
-      const text = em.textContent;
+      if (em._typeTimer) clearTimeout(em._typeTimer);
+      if (em.dataset.word === undefined) em.dataset.word = em.textContent;
+      const text = em.dataset.word;
       if (dot) dot.classList.remove('show');
       if (reduceMotionQuery.matches) {
         em.textContent = text;
@@ -1205,7 +1214,7 @@
         if (i < text.length) {
           em.textContent += text[i];
           i++;
-          setTimeout(step, 55);
+          em._typeTimer = setTimeout(step, 55);
         } else {
           em.classList.remove('typing');
           if (dot) dot.classList.add('show');
