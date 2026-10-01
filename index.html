@@ -365,7 +365,7 @@
     }
 
     /* ── Experience ── */
-    .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--hairline-d); }
+    .exp-item { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--hairline-d); }
     .exp-item:first-child { border-top: 1px solid var(--hairline-d); }
     .exp-date { font-size: 12px; font-weight: 500; color: var(--muted-d); padding-top: 4px; }
     .exp-role { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 4px; }
@@ -394,6 +394,28 @@
     .project-arrow { font-size: 20px; color: var(--faint-d); transition: transform .25s var(--ease), color .25s; padding-top: 6px; }
     .project-image { grid-column: 1 / -1; margin-top: 24px; border-radius: 12px; overflow: hidden; border: 1px solid var(--hairline-d); }
     .project-image img { display: block; width: 100%; height: auto; }
+
+    /* ── Hackathon photo gallery (drag-to-scroll) ── */
+    .photo-gallery { margin-top: 20px; }
+    .photo-gallery-hint {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--faint-d); margin-bottom: 10px;
+    }
+    .photo-track {
+      display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x proximity; cursor: grab; touch-action: pan-y;
+      scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px;
+    }
+    .photo-track::-webkit-scrollbar { display: none; }
+    .photo-track.dragging { cursor: grabbing; scroll-snap-type: none; }
+    .photo-track img {
+      height: 280px; width: auto; max-width: 70vw; flex-shrink: 0; object-fit: cover;
+      border-radius: 12px; border: 1px solid var(--hairline-d);
+      scroll-snap-align: start; -webkit-user-drag: none; user-select: none; pointer-events: auto;
+    }
+    @media (max-width: 640px) {
+      .photo-track img { height: 200px; }
+    }
 
     /* ── Skills ── */
     .skills-marquee-wrap {
@@ -526,8 +548,8 @@
       #hero { padding-top: 120px; }
       .about-grid { grid-template-columns: 1fr; }
       .about-aside { padding-left: 0; border-left: none; border-top: 1px solid var(--hairline-d); padding-top: 32px; }
-      .exp-item { grid-template-columns: 1fr; gap: 8px; }
-      .project-item { grid-template-columns: 32px 1fr auto; gap: 16px; }
+      .exp-item { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .project-item { grid-template-columns: 32px minmax(0, 1fr) auto; gap: 16px; }
       .menu-item-label { font-size: clamp(1.8rem, 11vw, 2.6rem); }
       .contact-links { flex-direction: column; align-items: stretch; }
     }
@@ -643,6 +665,31 @@
           <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
         </div>
         <div>
+          <div class="exp-item reveal">
+            <div class="exp-date" data-en="09/2026 — Present" data-pt="09/2026 — Atual">09/2026 — Present</div>
+            <div>
+              <h3 class="exp-role"
+                  data-en="IBM Z Student Ambassador"
+                  data-pt="Embaixadora Estudantil IBM Z">
+                IBM Z Student Ambassador
+              </h3>
+              <p class="exp-company"
+                 data-en="IBM Z Student Ambassador Program · UniCEUB, Brasília, Brazil · Hybrid"
+                 data-pt="Programa IBM Z Student Ambassador · UniCEUB, Brasília, DF · Híbrido">
+                IBM Z Student Ambassador Program · UniCEUB, Brasília, Brazil · Hybrid
+              </p>
+              <ul class="exp-bullets">
+                <li data-en="Represent IBM Z and mainframe technology within my university community"
+                    data-pt="Represento o IBM Z e a tecnologia mainframe na comunidade da minha universidade">
+                  Represent IBM Z and mainframe technology within my university community
+                </li>
+                <li data-en="Promote awareness of IBM Z, mainframe technology, and the IBM Z Xplore learning platform"
+                    data-pt="Divulgo o IBM Z, a tecnologia mainframe e a plataforma de aprendizado IBM Z Xplore">
+                  Promote awareness of IBM Z, mainframe technology, and the IBM Z Xplore learning platform
+                </li>
+              </ul>
+            </div>
+          </div>
           <div class="exp-item reveal">
             <div class="exp-date" data-en="08/2026 — Present" data-pt="08/2026 — Atual">08/2026 — Present</div>
             <div>
@@ -799,6 +846,15 @@
                   Contributed to problem research, MVP scoping, and pitch prep, and deployed the prototype to GitHub Pages
                 </li>
               </ul>
+              <div class="photo-gallery">
+                <p class="photo-gallery-hint" data-en="Drag to see more →" data-pt="Arraste para ver mais →">Arraste para ver mais →</p>
+                <div class="photo-track">
+                  <img src="assets/hackathon-pmi/fotogrupo.jpg" alt="Team at Hackathon PMI-DF 2026" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-pmi/bob.png" alt="Coding during Hackathon PMI-DF 2026" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-pmi/foto1.jpg" alt="Hackathon PMI-DF 2026 kit and banner" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-pmi/grupocamera.jpg" alt="Team photo, Hackathon PMI-DF 2026" loading="lazy" draggable="false">
+                </div>
+              </div>
             </div>
           </div>
           <div class="exp-item reveal">
@@ -828,6 +884,16 @@
                   Built a data center exposing TCU's audit evaluation with CSV/JSON export
                 </li>
               </ul>
+              <div class="photo-gallery">
+                <p class="photo-gallery-hint" data-en="Drag to see more →" data-pt="Arraste para ver mais →">Arraste para ver mais →</p>
+                <div class="photo-track">
+                  <img src="assets/hackathon-tcu/fea5e3de-648e-409a-9384-78527aa526ef.JPG" alt="Team working at Climaton Brasil hackathon" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-tcu/d992ff67-63ae-4a62-bc22-25dcb5174f76.JPG" alt="Climaton Brasil hackathon group photo" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-tcu/5882fb63-3369-4057-8bc0-b51307ca21cc.JPG" alt="Working at Climaton Brasil hackathon" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-tcu/IMG_1894.jpg" alt="Coding outdoors at Climaton Brasil hackathon" loading="lazy" draggable="false">
+                  <img src="assets/hackathon-tcu/IMG_0304.jpg" alt="Clarice Nunes at Climaton Brasil hackathon" loading="lazy" draggable="false">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1434,6 +1500,34 @@
     });
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
+    });
+
+    /* ── Drag-to-scroll photo galleries ── */
+    document.querySelectorAll('.photo-track').forEach((track) => {
+      let isDown = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('pointerdown', (e) => {
+        isDown = true; moved = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+        track.classList.add('dragging');
+        track.setPointerCapture(e.pointerId);
+      });
+      track.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      const endDrag = (e) => {
+        isDown = false;
+        track.classList.remove('dragging');
+      };
+      track.addEventListener('pointerup', endDrag);
+      track.addEventListener('pointercancel', endDrag);
+      track.addEventListener('pointerleave', endDrag);
+      track.querySelectorAll('img').forEach((img) => {
+        img.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
+      });
     });
 
     /* ── Scroll reveal ── */
