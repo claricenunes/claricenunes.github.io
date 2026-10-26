@@ -8,9 +8,9 @@ Built with vanilla HTML, CSS, and JavaScript. Zero dependencies, zero build step
 
 ## About
 
-I'm a Software Engineering student specializing in backend development and data analysis. This portfolio covers my experience with PHP/Laravel, Python, PostgreSQL, and AI-applied engineering projects.
+I'm a Software Engineering student at UniCEUB and a Data & AI intern at SERPRO. This portfolio covers my experience with Python, SQL, automation, PHP/Laravel and full-stack development, plus VIVE Comunidade — the volunteering and events platform I founded and build.
 
-Currently interning at Brazil's Ministry of Regional Development, shipping production code on legacy systems. Open to remote backend and AI engineering opportunities.
+Focused on data engineering, applied AI and software engineering.
 
 ---
 
@@ -18,7 +18,7 @@ Currently interning at Brazil's Ministry of Regional Development, shipping produ
 
 - EN / PT language toggle
 - Scroll-triggered reveal animations
-- Sections: Experience · Projects · Skills · About · Contact
+- Sections: Experience · Hackathons · Projects · Testimonials · Skills · Certificates · About · Contact
 - SEO meta tags + Open Graph for LinkedIn/WhatsApp previews
 - Custom SVG favicon
 - Fully responsive (mobile + desktop)
@@ -31,7 +31,7 @@ Currently interning at Brazil's Ministry of Regional Development, shipping produ
 
 | Project | Stack | Highlights |
 |---|---|---|
-| [VIVE — Community Platform](https://vivecomunidade.com.br) | React 19, Firebase, Vite | 1,000+ users, built from zero |
+| [VIVE — Community Platform](https://vivecomunidade.com.br) | React 19, Firebase, Vite, Python | 2,800+ registered users, built from zero |
 | [WhatsApp AI Agent](https://github.com/claricenunes/atendimentoIA) | Python, FastAPI, OpenAI, Docker | GPT-4o-mini, Clean Architecture |
 | [Restaurant Web Platform](https://github.com/claricenunes/poke_site) | PHP, Laravel, PostgreSQL | Full MVC backend lifecycle |
 | [Analytics Platform Rebuild](https://github.com/claricenunes/jubart_data) | Python, PHP, Laravel | Data pipelines, UI/UX overhaul |
