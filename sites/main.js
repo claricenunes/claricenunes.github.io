@@ -137,4 +137,15 @@ if (document.documentElement.classList.contains('motion')) {
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 }
 
+/* ── Brilho dos cards acompanha o cursor (só em mouse/trackpad) ── */
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.card').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();

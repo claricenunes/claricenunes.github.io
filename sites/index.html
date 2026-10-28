@@ -7,7 +7,8 @@
   <meta name="description" content="Sites institucionais, landing pages e sites profissionais feitos sob medida para empresas, pequenos negócios e autônomos. Atendimento remoto para todo o Brasil, com proposta por escrito antes de começar." />
   <meta name="author" content="Clarice Nunes" />
   <link rel="canonical" href="https://claricenunes.github.io/sites/" />
-  <meta name="theme-color" content="#F3EFE6" />
+  <meta name="theme-color" content="#4169E1" />
+  <meta name="color-scheme" content="light" />
 
   <!-- Open Graph / compartilhamento -->
   <meta property="og:type" content="website" />
@@ -25,11 +26,11 @@
   <meta name="twitter:description" content="Sites sob medida para o seu negócio ser encontrado — e escolhido." />
   <meta name="twitter:image" content="https://claricenunes.github.io/sites/og-image.jpg" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316181D'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='17' font-style='italic' fill='%23E8724E'>cn</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234169E1'/><circle cx='26' cy='6' r='4' fill='%23FF8A3D'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-size='14' font-weight='800' fill='white'>cn</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     // Ativa a animação de entrada antes da primeira pintura, para o conteúdo não "piscar".
@@ -64,8 +65,11 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="#topo" class="brand" aria-label="Clarice Nunes — Desenvolvimento Web, início">
-        <span class="brand-name">Clarice Nunes</span>
-        <span class="brand-tag">Desenvolvimento Web</span>
+        <span class="brand-mark" aria-hidden="true">cn</span>
+        <span class="brand-text">
+          <span class="brand-name">Clarice Nunes</span>
+          <span class="brand-tag">Desenvolvimento Web</span>
+        </span>
       </a>
       <nav class="main-nav" aria-label="Seções">
         <a href="#servicos">Serviços</a>
@@ -83,20 +87,32 @@
     <section class="hero" id="topo" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow reveal">Clarice Nunes — Desenvolvimento Web</p>
-          <h1 id="hero-title" class="reveal">Sites sob medida para o seu negócio ser <em>encontrado</em> — e escolhido.</h1>
+          <p class="pill reveal"><span class="pill-dot" aria-hidden="true"></span>Atendimento remoto para todo o Brasil</p>
+          <h1 id="hero-title" class="reveal">Sites sob medida para o seu negócio ser <span class="grad">encontrado</span> — e escolhido.</h1>
           <p class="hero-lead reveal">Crio sites institucionais, landing pages e sites profissionais que explicam com clareza o que você faz, passam confiança e facilitam o contato de quem quer contratar você.</p>
           <div class="hero-actions reveal">
-            <a href="#contato" class="btn btn-primary">Pedir orçamento</a>
+            <a href="#contato" class="btn btn-primary">Pedir orçamento <span aria-hidden="true">→</span></a>
             <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
           </div>
-          <p class="hero-note reveal">Atendimento remoto para todo o Brasil · Emissão de nota fiscal</p>
+          <p class="hero-note mono reveal">Proposta por escrito · Emissão de nota fiscal</p>
         </div>
+
         <div class="hero-visual reveal" aria-hidden="true">
+          <span class="shape shape-circle"></span>
+          <span class="shape shape-block"></span>
+          <span class="shape shape-ring"></span>
           <figure class="device-browser hero-browser">
             <div class="browser-bar"><span></span><span></span><span></span><p>vivecomunidade.com.br</p></div>
             <img src="img/vive-desktop.webp" alt="" width="1600" height="1000" fetchpriority="high" />
           </figure>
+          <div class="note-card">
+            <p class="note-title">Seu site</p>
+            <ul>
+              <li>Feito para o celular</li>
+              <li>Contato a um clique</li>
+              <li>Proposta por escrito</li>
+            </ul>
+          </div>
           <figure class="device-phone hero-phone">
             <img src="img/desapego-mobile.webp" alt="" width="600" height="1298" />
           </figure>
@@ -116,56 +132,55 @@
 
     <!-- ── Serviços ── -->
     <section class="section" id="servicos" aria-labelledby="servicos-title">
-      <div class="wrap section-grid">
+      <div class="wrap">
         <header class="section-head">
-          <p class="section-label">Nº 01 — Serviços</p>
+          <p class="section-label"><span>01</span> Serviços</p>
           <h2 id="servicos-title" class="reveal">O site certo para o momento do seu negócio.</h2>
           <p class="section-intro reveal">Antes de falar de páginas e telas, entendo o que o site precisa fazer por você: apresentar a empresa, vender um serviço ou trazer novos contatos.</p>
         </header>
 
-        <div class="services">
-          <article class="service reveal">
-            <span class="service-num">01</span>
+        <div class="bento">
+          <article class="card service service-lg reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
             <h3>Site institucional</h3>
             <p>Para empresas que precisam de um endereço próprio na internet, com serviços, diferenciais e formas de contato organizados de um jeito que o cliente entende rápido.</p>
-            <p class="service-for"><strong>Resolve:</strong> “a empresa não aparece bem quando alguém procura por ela.”</p>
+            <p class="service-for"><span class="mono">resolve →</span> “a empresa não aparece bem quando alguém procura por ela.”</p>
           </article>
-          <article class="service reveal">
-            <span class="service-num">02</span>
+          <article class="card service reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
             <h3>Landing page</h3>
             <p>Uma página com um único objetivo — divulgar um serviço, uma campanha ou um lançamento — e levar o visitante a entrar em contato ou fazer um pedido.</p>
-            <p class="service-for"><strong>Resolve:</strong> “divulgo nas redes, mas não tenho para onde mandar as pessoas.”</p>
+            <p class="service-for"><span class="mono">resolve →</span> “divulgo nas redes, mas não tenho para onde mandar as pessoas.”</p>
           </article>
-          <article class="service reveal">
-            <span class="service-num">03</span>
+          <article class="card service reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
             <h3>Site profissional e portfólio</h3>
             <p>Para autônomos e prestadores de serviço: quem você é, o que faz, trabalhos realizados e como contratar, em uma apresentação que transmite profissionalismo.</p>
-            <p class="service-for"><strong>Resolve:</strong> “meu trabalho é bom, mas só existe no Instagram.”</p>
+            <p class="service-for"><span class="mono">resolve →</span> “meu trabalho é bom, mas só existe no Instagram.”</p>
           </article>
-        </div>
-
-        <div class="extras reveal">
-          <h3 class="extras-title">Também faço</h3>
-          <ul class="extras-list">
-            <li><strong>Desenvolvimento sob medida</strong><span>Funcionalidades específicas do seu negócio, como catálogos, áreas restritas e painéis.</span></li>
-            <li><strong>Integrações e automações</strong><span>Formulários, WhatsApp, APIs e ferramentas externas, quando fizer sentido para o projeto.</span></li>
-            <li><strong>Manutenção e evolução</strong><span>Melhorias, correções e novas funções em sites existentes, contratadas à parte.</span></li>
-          </ul>
+          <article class="card extras reveal">
+            <h3 class="extras-title">Também faço</h3>
+            <ul class="extras-list">
+              <li><div class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div><div><strong>Desenvolvimento sob medida</strong><span>Funcionalidades específicas do seu negócio, como catálogos, áreas restritas e painéis.</span></div></li>
+              <li><div class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7zM12 16v5"/></svg></div><div><strong>Integrações e automações</strong><span>Formulários, WhatsApp, APIs e ferramentas externas, quando fizer sentido para o projeto.</span></div></li>
+              <li><div class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5z"/></svg></div><div><strong>Manutenção e evolução</strong><span>Melhorias, correções e novas funções em sites existentes, contratadas à parte.</span></div></li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ── Projetos ── -->
-    <section class="section section-dark" id="projetos" aria-labelledby="projetos-title">
+    <section class="section" id="projetos" aria-labelledby="projetos-title">
       <div class="wrap">
-        <header class="section-head section-head-wide">
-          <p class="section-label">Nº 02 — Projetos</p>
+        <header class="section-head">
+          <p class="section-label"><span>02</span> Projetos</p>
           <h2 id="projetos-title" class="reveal">Trabalhos que estão no ar.</h2>
           <p class="section-intro reveal">Dois projetos reais e um projeto conceitual — cada um identificado como tal.</p>
         </header>
 
-        <article class="case" aria-labelledby="case-vive">
-          <div class="case-visual reveal">
+        <article class="card case reveal" aria-labelledby="case-vive">
+          <div class="case-visual">
             <figure class="device-browser">
               <div class="browser-bar"><span></span><span></span><span></span><p>vivecomunidade.com.br</p></div>
               <img src="img/vive-desktop.webp" alt="Página inicial da VIVE Comunidade no computador: logotipo, fotos de eventos e chamada para ver os próximos eventos." width="1600" height="1000" loading="lazy" decoding="async" />
@@ -174,20 +189,20 @@
               <img src="img/vive-mobile.webp" alt="Página inicial da VIVE Comunidade no celular." width="600" height="1298" loading="lazy" decoding="async" />
             </figure>
           </div>
-          <div class="case-body reveal">
-            <p class="case-kind"><span class="badge">Projeto real</span> Plataforma web</p>
+          <div class="case-body">
+            <p class="case-kind"><span class="badge">Projeto real</span><span class="mono">plataforma web</span></p>
             <h3 id="case-vive">VIVE Comunidade</h3>
             <p>Plataforma que conecta pessoas a eventos, oficinas e ações de voluntariado em Brasília. Fundei o projeto e desenvolvi a plataforma inteira — e sigo cuidando dela no dia a dia.</p>
             <dl class="case-facts">
               <div><dt>O que fiz</dt><dd>Concepção, design e desenvolvimento: páginas públicas, cadastro, inscrições em eventos atualizadas em tempo real, lista de espera, painel administrativo com métricas e exportação de relatórios.</dd></div>
               <div><dt>Resultado</dt><dd>Mais de 2.800 cadastros, segundo o contador público do próprio site.</dd></div>
             </dl>
-            <a class="case-link" href="https://vivecomunidade.com.br" target="_blank" rel="noopener">Visitar vivecomunidade.com.br <span aria-hidden="true">↗</span></a>
+            <a class="case-link" href="https://vivecomunidade.com.br" target="_blank" rel="noopener">vivecomunidade.com.br <span aria-hidden="true">↗</span></a>
           </div>
         </article>
 
-        <article class="case case-flip" aria-labelledby="case-desapego">
-          <div class="case-visual reveal">
+        <article class="card case case-flip reveal" aria-labelledby="case-desapego">
+          <div class="case-visual">
             <figure class="device-browser">
               <div class="browser-bar"><span></span><span></span><span></span><p>claricenunes.github.io/desapego</p></div>
               <img src="img/desapego-desktop.webp" alt="Catálogo Desapego no computador: título, fotos de peças e faixa de preços." width="1600" height="822" loading="lazy" decoding="async" />
@@ -196,8 +211,8 @@
               <img src="img/desapego-mobile.webp" alt="Catálogo Desapego no celular: filtros por categoria e peças com botão “Quero essa” para chamar no WhatsApp." width="600" height="1298" loading="lazy" decoding="async" />
             </figure>
           </div>
-          <div class="case-body reveal">
-            <p class="case-kind"><span class="badge">Projeto real</span> Catálogo online</p>
+          <div class="case-body">
+            <p class="case-kind"><span class="badge">Projeto real</span><span class="mono">catálogo online</span></p>
             <h3 id="case-desapego">Desapego</h3>
             <p>Catálogo do meu brechó, feito para vender pelo WhatsApp sem depender de uma plataforma de e-commerce paga. Um bom exemplo do que um pequeno negócio precisa para vender online.</p>
             <dl class="case-facts">
@@ -208,8 +223,8 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-crumbly">
-          <div class="case-visual reveal">
+        <article class="card case reveal" aria-labelledby="case-crumbly">
+          <div class="case-visual">
             <figure class="device-browser">
               <div class="browser-bar"><span></span><span></span><span></span><p>crumbly-theta.vercel.app</p></div>
               <img src="img/crumbly-desktop.webp" alt="Site conceitual Crumbly no computador: cookies em destaque e a chamada “Get your cookie”." width="1600" height="1000" loading="lazy" decoding="async" />
@@ -218,8 +233,8 @@
               <img src="img/crumbly-mobile.webp" alt="Site conceitual Crumbly no celular." width="600" height="1298" loading="lazy" decoding="async" />
             </figure>
           </div>
-          <div class="case-body reveal">
-            <p class="case-kind"><span class="badge badge-concept">Projeto conceitual</span> Site de marca</p>
+          <div class="case-body">
+            <p class="case-kind"><span class="badge badge-concept">Projeto conceitual</span><span class="mono">site de marca</span></p>
             <h3 id="case-crumbly">Crumbly</h3>
             <p>Uma marca fictícia de cookies, criada por mim para mostrar o nível de acabamento que um negócio de alimentação pode ter na internet. <strong>Não é um cliente real.</strong></p>
             <dl class="case-facts">
@@ -232,74 +247,82 @@
 
         <div class="inline-cta reveal">
           <p>Tem um projeto parecido em mente?</p>
-          <a href="#contato" class="btn btn-light">Conversar sobre o meu site</a>
+          <a href="#contato" class="btn btn-primary">Conversar sobre o meu site <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
 
     <!-- ── Processo ── -->
     <section class="section" id="processo" aria-labelledby="processo-title">
-      <div class="wrap section-grid">
+      <div class="wrap">
         <header class="section-head">
-          <p class="section-label">Nº 03 — Como funciona</p>
+          <p class="section-label"><span>03</span> Como funciona</p>
           <h2 id="processo-title" class="reveal">Do primeiro contato ao site no ar.</h2>
           <p class="section-intro reveal">Você sabe o que vai receber, quanto vai custar e quando, antes de qualquer linha de código.</p>
         </header>
-        <ol class="steps">
+        <ol class="timeline">
           <li class="step reveal">
-            <span class="step-num">1</span>
-            <div><h3>Conversa inicial</h3><p>Entendo o seu negócio, o público que você quer alcançar e o que o site precisa resolver.</p></div>
+            <span class="step-num mono">01</span>
+            <h3>Conversa inicial</h3>
+            <p>Entendo o seu negócio, o público que você quer alcançar e o que o site precisa resolver.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">2</span>
-            <div><h3>Proposta por escrito</h3><p>Escopo, prazo, valor, hospedagem, rodadas de ajuste e condições de pagamento, tudo detalhado antes de começar.</p></div>
+            <span class="step-num mono">02</span>
+            <h3>Proposta por escrito</h3>
+            <p>Escopo, prazo, valor, hospedagem, rodadas de ajuste e condições de pagamento, tudo detalhado antes de começar.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">3</span>
-            <div><h3>Estrutura e visual</h3><p>Defino com você a organização das páginas e a aparência do site, e só sigo para o desenvolvimento depois da sua aprovação.</p></div>
+            <span class="step-num mono">03</span>
+            <h3>Estrutura e visual</h3>
+            <p>Defino com você a organização das páginas e a aparência do site, e só sigo para o desenvolvimento depois da sua aprovação.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">4</span>
-            <div><h3>Desenvolvimento com prévias</h3><p>Você acompanha o site sendo construído e pede os ajustes previstos na proposta.</p></div>
+            <span class="step-num mono">04</span>
+            <h3>Desenvolvimento com prévias</h3>
+            <p>Você acompanha o site sendo construído e pede os ajustes previstos na proposta.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">5</span>
-            <div><h3>Publicação</h3><p>O site vai ao ar no domínio registrado em seu nome, e você recebe orientações para usá-lo. Depois disso, a manutenção é opcional.</p></div>
+            <span class="step-num mono">05</span>
+            <h3>Publicação</h3>
+            <p>O site vai ao ar no domínio registrado em seu nome, e você recebe orientações para usá-lo. Depois disso, a manutenção é opcional.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- ── Sobre ── -->
-    <section class="section section-tint" id="sobre" aria-labelledby="sobre-title">
-      <div class="wrap about">
-        <div class="about-photo reveal">
-          <img src="img/clarice.webp" alt="Clarice Nunes" width="480" height="480" loading="lazy" decoding="async" />
-        </div>
-        <div class="about-body">
-          <p class="section-label">Nº 04 — Quem faz</p>
-          <h2 id="sobre-title" class="reveal">Prazer, sou a Clarice.</h2>
-          <p class="reveal">Sou desenvolvedora e estudante de Engenharia de Software no UniCEUB, em Brasília. Trabalho com desenvolvimento web, bancos de dados e integrações, e fundei a VIVE Comunidade — uma plataforma que eu mesma construí e mantenho no ar.</p>
-          <p class="reveal">Essa experiência de cuidar de um produto real, com pessoas usando todos os dias, é o que trago para o site do seu negócio: atenção a quem vai usar, clareza no que importa e responsabilidade com o que vai ao ar.</p>
-          <ul class="values reveal">
-            <li><strong>Comunicação direta.</strong> Você fala com quem desenvolve, sem intermediários.</li>
-            <li><strong>Pensado para o celular.</strong> O layout é desenhado primeiro para a tela pequena e depois ampliado para o computador.</li>
-            <li><strong>Acessível e leve.</strong> Contraste, leitura confortável e carregamento rápido fazem parte do trabalho, não são extras.</li>
-            <li><strong>Objetivo claro.</strong> Cada página leva o visitante a uma ação: chamar, pedir orçamento, comprar.</li>
-          </ul>
-          <p class="about-links reveal">
-            <a href="https://github.com/claricenunes" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-            <a href="https://linkedin.com/in/claricesnunes" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
-          </p>
+    <section class="section" id="sobre" aria-labelledby="sobre-title">
+      <div class="wrap">
+        <div class="card about reveal">
+          <div class="about-photo">
+            <img src="img/clarice.webp" alt="Clarice Nunes" width="480" height="480" loading="lazy" decoding="async" />
+            <p class="mono about-id">clarice nunes<br><span>dev web · brasília</span></p>
+          </div>
+          <div class="about-body">
+            <p class="section-label"><span>04</span> Quem faz</p>
+            <h2 id="sobre-title">Prazer, sou a Clarice.</h2>
+            <p>Sou desenvolvedora e estudante de Engenharia de Software no UniCEUB, em Brasília. Trabalho com desenvolvimento web, bancos de dados e integrações, e fundei a VIVE Comunidade — uma plataforma que eu mesma construí e mantenho no ar.</p>
+            <p>Essa experiência de cuidar de um produto real, com pessoas usando todos os dias, é o que trago para o site do seu negócio: atenção a quem vai usar, clareza no que importa e responsabilidade com o que vai ao ar.</p>
+            <ul class="values">
+              <li><strong>Comunicação direta</strong><span>Você fala com quem desenvolve, sem intermediários.</span></li>
+              <li><strong>Pensado para o celular</strong><span>O layout é desenhado primeiro para a tela pequena e depois ampliado para o computador.</span></li>
+              <li><strong>Acessível e leve</strong><span>Contraste, leitura confortável e carregamento rápido fazem parte do trabalho, não são extras.</span></li>
+              <li><strong>Objetivo claro</strong><span>Cada página leva o visitante a uma ação: chamar, pedir orçamento, comprar.</span></li>
+            </ul>
+            <p class="about-links">
+              <a href="https://github.com/claricenunes" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://linkedin.com/in/claricesnunes" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ── FAQ ── -->
     <section class="section" id="perguntas" aria-labelledby="perguntas-title">
-      <div class="wrap section-grid">
+      <div class="wrap faq-grid">
         <header class="section-head">
-          <p class="section-label">Nº 05 — Perguntas frequentes</p>
+          <p class="section-label"><span>05</span> Perguntas frequentes</p>
           <h2 id="perguntas-title" class="reveal">Antes de pedir um orçamento.</h2>
         </header>
         <div class="faq reveal">
@@ -344,17 +367,19 @@
     </section>
 
     <!-- ── Contato ── -->
-    <section class="section section-dark contact" id="contato" aria-labelledby="contato-title">
+    <section class="section contact" id="contato" aria-labelledby="contato-title">
+      <span class="shape contact-shape" aria-hidden="true"></span>
       <div class="wrap contact-grid">
         <div class="contact-copy">
-          <p class="section-label">Nº 06 — Orçamento</p>
-          <h2 id="contato-title" class="reveal">Vamos tirar o seu site do papel?</h2>
+          <p class="section-label"><span>06</span> Orçamento</p>
+          <h2 id="contato-title" class="reveal">Vamos tirar o seu site do <span class="grad">papel</span>?</h2>
           <p class="reveal">Responda algumas perguntas rápidas. Com elas, chego na conversa já entendendo o seu negócio — e a proposta sai mais precisa.</p>
-          <p class="contact-alt reveal">Prefere escrever direto? <a href="mailto:euclaricenunes@gmail.com" data-email-link>euclaricenunes@gmail.com</a></p>
+          <p class="contact-alt reveal">Prefere escrever direto?<br><a href="mailto:euclaricenunes@gmail.com" data-email-link>euclaricenunes@gmail.com</a></p>
           <a href="#" class="contact-wa reveal" data-whatsapp-link hidden>Chamar no WhatsApp <span aria-hidden="true">↗</span></a>
         </div>
 
-        <form class="brief reveal" id="briefing" novalidate>
+        <form class="card brief reveal" id="briefing" novalidate>
+          <div class="brief-head" aria-hidden="true"><span></span>Pedido de orçamento</div>
           <div class="field">
             <label for="f-nome">Seu nome</label>
             <input id="f-nome" name="nome" type="text" autocomplete="name" required />
@@ -403,7 +428,7 @@
           <p class="form-error" id="form-error" role="alert" hidden>Preencha todos os campos para montar a mensagem.</p>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary" id="brief-submit">Enviar por e-mail</button>
-            <button type="button" class="btn btn-outline-light" id="brief-copy">Copiar mensagem</button>
+            <button type="button" class="btn btn-ghost" id="brief-copy">Copiar mensagem</button>
           </div>
           <p class="form-note" id="form-note">Ao enviar, seu aplicativo de e-mail abre com a mensagem pronta para você revisar. Nenhum dado fica salvo neste site.</p>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -414,9 +439,9 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <p><strong>Clarice Nunes</strong> — Desenvolvimento Web · Atendimento remoto para todo o Brasil</p>
+      <p><span class="brand-mark" aria-hidden="true">cn</span> <strong>Clarice Nunes</strong> — Desenvolvimento Web</p>
       <p><a href="mailto:euclaricenunes@gmail.com" data-email-link>euclaricenunes@gmail.com</a> · <a href="https://github.com/claricenunes" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/claricesnunes" target="_blank" rel="noopener">LinkedIn</a></p>
-      <p class="footer-year">© <span id="year">2026</span></p>
+      <p class="mono">© <span id="year">2026</span> · Brasil</p>
     </div>
   </footer>
 
